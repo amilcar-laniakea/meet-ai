@@ -4,6 +4,13 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 
 ## 🚀 Features
 
+### 🔐 **Authentication System**
+- **Email/Password Authentication** with secure validation
+- **Session Management** with persistent login state
+- **User Registration** with email verification support
+- **WebAuthn/Passkey Support** for enhanced security
+- **Better-Auth Integration** with type-safe APIs
+
 ### 🎨 **Modern UI Components**
 - **40+ shadcn/ui components** with Radix UI primitives
 - **Complete accessibility** with ARIA compliance and keyboard navigation
@@ -14,7 +21,7 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 - **Drizzle ORM** with type-safe database operations
 - **Neon PostgreSQL** serverless database
 - **Database studio** for visual data management
-- **User schema** with auto-incrementing IDs and validation
+- **Authentication Schema** with users, sessions, accounts, and verification tables
 
 ### 🎯 **Advanced Styling**
 - **Tailwind CSS 4.0** with modern CSS engine
@@ -31,6 +38,7 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 ## 🛠️ Tech Stack
 
 - **Frontend:** Next.js 15.4.6, React 19.1.0, TypeScript 5
+- **Authentication:** Better-Auth v1.2.8 with WebAuthn support
 - **Styling:** Tailwind CSS 4.0, PostCSS, tw-animate-css
 - **UI Components:** shadcn/ui, Radix UI, Lucide Icons
 - **Database:** Drizzle ORM, Neon PostgreSQL
@@ -116,35 +124,67 @@ The project includes a comprehensive component library:
 
 ## 🗄️ Database Schema
 
-Current schema includes:
+Current schema includes authentication tables:
 
 ```typescript
 // Users table
-{
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar({ length: 255 }).notNull(),
-  age: integer().notNull(),
-  email: varchar({ length: 255 }).notNull().unique()
-}
+export const user = pgTable('user', {
+  id: text('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull().unique(),
+  emailVerified: boolean('email_verified').notNull(),
+  image: text('image'),
+  createdAt: timestamp('created_at').notNull(),
+  updatedAt: timestamp('updated_at').notNull()
+});
+
+// Sessions table for authentication
+export const session = pgTable('session', {
+  id: text('id').primaryKey(),
+  expiresAt: timestamp('expires_at').notNull(),
+  token: text('token').notNull().unique(),
+  userId: text('user_id').references(() => user.id),
+  // ... additional session fields
+});
+
+// Accounts table for OAuth providers
+export const account = pgTable('account', {
+  id: text('id').primaryKey(),
+  accountId: text('account_id').notNull(),
+  providerId: text('provider_id').notNull(),
+  userId: text('user_id').references(() => user.id),
+  // ... OAuth token fields
+});
+
+// Verification table for email verification
+export const verification = pgTable('verification', {
+  id: text('id').primaryKey(),
+  identifier: text('identifier').notNull(),
+  value: text('value').notNull(),
+  expiresAt: timestamp('expires_at').notNull()
+});
 ```
 
 ## 🎯 Project Structure
 
 ```
 src/
-├── app/                 # Next.js App Router
-│   ├── globals.css     # Global styles and theme
-│   ├── layout.tsx      # Root layout component
-│   └── page.tsx        # Home page
+├── app/
+│   ├── api/auth/[...all]/ # Authentication API routes
+│   ├── globals.css        # Global styles and theme
+│   ├── layout.tsx         # Root layout component
+│   └── page.tsx          # Home page with auth demo
 ├── components/
-│   └── ui/             # shadcn/ui components
+│   └── ui/               # shadcn/ui components
 ├── db/
-│   ├── index.ts        # Database connection
-│   └── schema.ts       # Database schema
+│   ├── index.ts          # Database connection
+│   └── schema.ts         # Database schema with auth tables
 ├── hooks/
-│   └── use-mobile.ts   # Mobile detection hook
+│   └── use-mobile.ts     # Mobile detection hook
 └── lib/
-    └── utils.ts        # Utility functions
+    ├── auth.ts           # Better-auth server configuration
+    ├── auth-client.ts    # Better-auth client configuration
+    └── utils.ts          # Utility functions
 ```
 
 ## 🌙 Theme System

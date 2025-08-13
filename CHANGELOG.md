@@ -5,6 +5,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2025-08-13
+
+### ✨ Added
+- **Authentication System:** Complete authentication integration with better-auth library v1.2.8
+- **User Management:** Full user registration, sign-in, sign-out, and session management capabilities
+- **Email/Password Authentication:** Secure email and password-based authentication with validation
+- **Session Management:** Persistent user sessions with automatic token handling and validation
+- **WebAuthn Support:** Built-in WebAuthn/passkey authentication support for enhanced security
+
+### 🗄️ Database Schema Updates
+- **User Table:** Enhanced user schema with comprehensive fields:
+  - Text-based primary keys for better scalability
+  - Email verification status tracking
+  - Profile image support
+  - Created/updated timestamps with automatic defaults
+- **Session Table:** Complete session management with:
+  - Token-based authentication
+  - IP address and user agent tracking
+  - Automatic session expiration handling
+  - Cascade deletion on user removal
+- **Account Table:** OAuth and social login preparation with:
+  - Multiple provider support structure
+  - Access/refresh token management
+  - Token expiration tracking
+- **Verification Table:** Email verification and password reset functionality
+
+### 🛠️ Authentication Infrastructure
+- **Better-Auth Integration:** Modern authentication library with type-safe APIs
+- **Drizzle Adapter:** Seamless database integration with existing Drizzle ORM setup
+- **Next.js API Routes:** RESTful authentication endpoints at `/api/auth/[...all]`
+- **React Client:** Type-safe authentication hooks and utilities
+- **Security Features:** Built-in CSRF protection, secure session handling, and password validation
+
+### 🎨 UI Implementation
+- **Authentication Forms:** Complete sign-up and sign-in forms with validation
+- **Session Display:** User welcome screen with session information
+- **State Management:** Loading states and error handling for authentication flows
+- **Responsive Design:** Mobile-friendly authentication interface
+- **Input Validation:** Real-time form validation with user feedback
+
+### 🔧 Technical Enhancements
+- **TypeScript Integration:** Full type safety for authentication flows
+- **Client-Side Hooks:** React hooks for session management and authentication state
+- **Error Handling:** Comprehensive error handling with user-friendly messages
+- **Security Best Practices:** Secure password handling and session management
+
+### 📱 User Experience
+- **Smooth Authentication Flow:** Seamless user registration and login experience
+- **Session Persistence:** Automatic session restoration on page reload
+- **Loading States:** Professional loading indicators during authentication
+- **Welcome Messages:** Personalized user greetings and success notifications
+
 ## [0.0.1] - 2025-08-12
 
 ### 🎉 Initial Release

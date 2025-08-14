@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2025-08-14
+
+### ✨ Added
+- **tRPC Setup:** Complete tRPC v11 integration with TanStack Query v5 for type-safe API calls
+- **Dashboard Navbar:** New responsive navigation bar with sidebar toggle and command palette
+- **Command Palette:** Global search functionality with CMD+K keyboard shortcut
+- **TRPC API Routes:** `/api/trpc/[trpc]` endpoint for server-side API handling
+- **Client/Server Split:** Proper client-side and server-side tRPC setup with React Provider
+
+### 🎨 UI/UX Enhancements
+- **Mobile-Responsive User Menu:** Drawer-based user menu for mobile devices with improved UX
+- **Search Interface:** Clean search bar with keyboard shortcut indicator
+- **Sidebar Integration:** Seamless sidebar collapse/expand functionality
+
+### 🏗️ Refactors & Improvements
+- **Type Safety:** End-to-end type safety with tRPC router and procedures
+- **State Management:** TanStack Query integration for efficient data fetching and caching
+- **Code Organization:** Structured tRPC setup with routers, context, and query client configuration
+
+### 🔧 Development Experience
+- **Server/Client Boundaries:** Proper server-only and client-only imports for security
+- **Hot Reload:** Improved development experience with tRPC dev tools
+
+---
+
 ## [0.5.0] - 2025-08-14
 
 ### ✨ Added

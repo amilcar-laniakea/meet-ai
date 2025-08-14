@@ -58,14 +58,13 @@ export const SignInView = () => {
           },
           onError: ({ error }) => {
             setError(error.message);
-          },
-          onResponse: () => {
-            setLoading(false);
           }
         }
       );
     } catch {
       setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -93,6 +92,8 @@ export const SignInView = () => {
                           <Input
                             type="email"
                             placeholder="example@example.com"
+                            autoComplete="email"
+                            disabled={loading}
                             {...field}
                           />
                         </FormControl>
@@ -110,6 +111,8 @@ export const SignInView = () => {
                           <Input
                             type="password"
                             placeholder="********"
+                            autoComplete="current-password"
+                            disabled={loading}
                             {...field}
                           />
                         </FormControl>

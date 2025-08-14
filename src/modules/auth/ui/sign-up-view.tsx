@@ -75,14 +75,13 @@ export const SignUpView = () => {
           },
           onError: ({ error }) => {
             setError(error.message);
-          },
-          onResponse: () => {
-            setLoading(false);
           }
         }
       );
     } catch {
       setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -178,7 +177,7 @@ export const SignUpView = () => {
                     variant="destructive"
                     className="bg-destructive/10 border-none"
                   >
-                    <OctagonAlertIcon className="h-4 w-4 !destructive" />
+                    <OctagonAlertIcon className="h-4 w-4 text-destructive" />
                     <AlertTitle>{error}</AlertTitle>
                   </Alert>
                 )}
@@ -225,7 +224,7 @@ export const SignUpView = () => {
               </div>
             </form>
           </Form>
-          <div className="bg-radial from from-blue-900 to-blue-950 relative hidden md:flex flex-col gap-y-4 items-center justify-center p-4">
+          <div className="bg-radial from-blue-900 to-blue-950 relative hidden md:flex flex-col gap-y-4 items-center justify-center p-4">
             <Image
               src={'/logo.svg'}
               width={100}

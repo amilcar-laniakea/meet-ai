@@ -1,47 +1,77 @@
 # Meet AI
 
-A modern, full-stack web application built with Next.js 15, featuring a comprehensive UI component library, database integration, and advanced styling system.
+A modern, full-stack web application built with Next.js 15, featuring a
+comprehensive UI component library, database integration, and advanced styling
+system.
 
 ## 🚀 Features
 
 ### 🔐 **Authentication System**
+
 - **Professional Authentication UI** with modern, polished design
-- **Email/Password Authentication** with secure validation and password confirmation
+- **Email/Password Authentication** with secure validation and password
+  confirmation
 - **Dedicated Authentication Pages** at `/sign-in` and `/sign-up` routes
 - **Session Management** with persistent login state
 - **Brand Integration** with custom Meet.AI logo and consistent styling
-- **Social Authentication:** Google and GitHub OAuth login fully integrated with branded buttons and secure callback handling
-- **Better-Auth Integration** with type-safe APIs and comprehensive error handling
+- **Social Authentication:** Google and GitHub OAuth login fully integrated with
+  branded buttons and secure callback handling
+- **Better-Auth Integration** with type-safe APIs and comprehensive error
+  handling
 
 ### 🌐 **Social Login**
-- **Google and GitHub OAuth:** Sign in and sign up with your Google or GitHub account
-- **Branded Social Buttons:** UI includes Google and GitHub icons (via `react-icons`) and loading/error states
-- **Centralized Provider Config:** Social provider setup managed in `auth.ts` for maintainability
+
+- **Google and GitHub OAuth:** Sign in and sign up with your Google or GitHub
+  account
+- **Branded Social Buttons:** UI includes Google and GitHub icons (via
+  `react-icons`) and loading/error states
+- **Centralized Provider Config:** Social provider setup managed in `auth.ts`
+  for maintainability
 
 ### 🎨 **Modern UI Components**
+
 ### 🧑‍💼 **Dashboard & Sidebar**
-- **Dashboard Layout:** `/dashboard` route group with sidebar navigation for authenticated users
+
+- **Dashboard Layout:** `/dashboard` route group with sidebar navigation for
+  authenticated users
 - **Sidebar Navigation:** Modular sidebar with navigation, user menu, and avatar
-- **DiceBear Avatars:** Dynamic user avatars using DiceBear for personalized experience
-- **Dashboard Navbar:** Modular dashboard navigation bar for improved navigation and user experience
+- **DiceBear Avatars:** Dynamic user avatars using DiceBear for personalized
+  experience
+- **Dashboard Navbar:** Modular dashboard navigation bar for improved navigation
+  and user experience
+- **Command Palette:** Global search with CMD+K shortcut for quick navigation
+
+### 🔌 **API & Data Management**
+
+- **tRPC v11:** End-to-end type-safe API with TanStack Query v5 integration
+- **Type-Safe Procedures:** Fully typed client-server communication
+- **Query Caching:** Efficient data fetching and caching with TanStack Query
+- **Server Components:** Proper server/client boundary with tRPC integration
+
+### 🎨 **Modern UI Components**
+
 - **40+ shadcn/ui components** with Radix UI primitives
 - **Complete accessibility** with ARIA compliance and keyboard navigation
 - **Responsive design** with mobile-first approach
 - **Dark/Light theme support** with automatic system detection
 
 ### 🗄️ **Database Integration**
+
 - **Drizzle ORM** with type-safe database operations
 - **Neon PostgreSQL** serverless database
 - **Database studio** for visual data management
-- **Authentication Schema** with users, sessions, accounts, and verification tables
+- **Authentication Schema** with users, sessions, accounts, and verification
+  tables
 
 ### 🎯 **Advanced Styling**
+
 - **Tailwind CSS 4.0** with modern CSS engine
 - **OKLCH color system** for improved color accuracy
 - **Custom design tokens** and CSS variables
 - **Animation system** with smooth transitions
 
 ### ⚡ **Performance & Developer Experience**
+
 - **Turbopack** for lightning-fast development builds
 - **TypeScript** with strict type checking
 - **Enhanced VS Code Settings** with optimized workspace configuration
@@ -53,6 +83,7 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 
 - **Frontend:** Next.js 15.4.6, React 19.1.0, TypeScript 5
 - **Authentication:** Better-Auth v1.2.8 with WebAuthn support
+- **API:** tRPC v11 with TanStack Query v5 for type-safe data fetching
 - **Styling:** Tailwind CSS 4.0, PostCSS, tw-animate-css
 - **UI Components:** shadcn/ui, Radix UI, Lucide Icons
 - **Database:** Drizzle ORM, Neon PostgreSQL
@@ -63,23 +94,27 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 ## 📦 Installation
 
 1. **Clone the repository:**
+
 ```bash
 git clone https://github.com/amilcar-laniakea/meet-ai.git
 cd meet-ai
 ```
 
 2. **Install dependencies:**
+
 ```bash
 npm install
 ```
 
 3. **Set up environment variables:**
+
 ```bash
 # Create .env.local file
 DATABASE_URL="your-neon-postgresql-connection-string"
 ```
 
 4. **Push database schema:**
+
 ```bash
 npm run db:push
 ```
@@ -112,20 +147,24 @@ npm run db-studio    # Open Drizzle Studio
 ## 🎨 Authentication Features
 
 ### 🔑 **Modern Authentication Flow**
+
 - **Professional Sign-In/Sign-Up Pages** with responsive two-column design
 - **Brand Integration** with Meet.AI logo and consistent blue theme
 - **Form Validation** with real-time feedback and error handling
 - **Loading States** with smooth animations during authentication
 - **Password Confirmation** for secure user registration
-- **Social Login:** Google and GitHub OAuth login with branded buttons and error/loading feedback
+- **Social Login:** Google and GitHub OAuth login with branded buttons and
+  error/loading feedback
 
 ### 📱 **Responsive Design**
+
 - **Mobile-First** authentication forms optimized for all devices
 - **Desktop Enhancement** with branded side panels on larger screens
 - **Touch-Friendly** interactions with proper button sizing
 - **Adaptive Layouts** that work seamlessly across screen sizes
 
 ### 🛡️ **Security Features**
+
 - **Form Protection** against multiple submissions with loading states
 - **Input Validation** with Zod schema and TypeScript type safety
 - **Secure Error Handling** without exposing sensitive information
@@ -136,25 +175,30 @@ npm run db-studio    # Open Drizzle Studio
 The project includes a comprehensive component library:
 
 ### Navigation & Layout
+
 - Sidebar, Navigation Menu, Breadcrumb
 - Menubar, Header components
 
 ### Form Controls
+
 - Input, Textarea, Select, Checkbox
 - Radio Group, Switch, Slider
 - Calendar with Date Picker
 
 ### Interactive Elements
+
 - Button variants, Dropdown Menus
 - Context Menus, Hover Cards
 - Tooltips, Popover components
 
 ### Data Display
+
 - Card, Table, Badge, Avatar
 - Skeleton Loading, Chart components
 - Progress indicators
 
 ### Overlay Components
+
 - Dialog, Alert Dialog, Sheet
 - Drawer, Command Palette
 
@@ -179,7 +223,7 @@ export const session = pgTable('session', {
   id: text('id').primaryKey(),
   expiresAt: timestamp('expires_at').notNull(),
   token: text('token').notNull().unique(),
-  userId: text('user_id').references(() => user.id),
+  userId: text('user_id').references(() => user.id)
   // ... additional session fields
 });
 
@@ -188,7 +232,7 @@ export const account = pgTable('account', {
   id: text('id').primaryKey(),
   accountId: text('account_id').notNull(),
   providerId: text('provider_id').notNull(),
-  userId: text('user_id').references(() => user.id),
+  userId: text('user_id').references(() => user.id)
   // ... OAuth token fields
 });
 
@@ -202,7 +246,6 @@ export const verification = pgTable('verification', {
 ```
 
 ## 🎯 Project Structure
-
 
 ```
 src/
@@ -227,7 +270,7 @@ src/
 │   ├── dashboard/
 │   │   └── ui/
 │   │       └── components/
-│   │           ├── dasboard-navbar.tsx
+│   │           ├── dashboard-navbar.tsx
 │   │           ├── dashboard-command.tsx
 │   │           ├── dashboard-sidebar.tsx
 │   │           └── dashboard-user-button.tsx
@@ -247,11 +290,16 @@ src/
 │   ├── auth.ts                # Better-auth server configuration
 │   ├── auth-client.ts         # Better-auth client configuration
 │   └── utils.ts               # Utility functions
+├── trpc/                      # tRPC setup and configuration
+│   ├── client.tsx             # Client-side tRPC and React Query setup
+│   ├── server.tsx             # Server-side tRPC setup
+│   ├── init.ts                # tRPC initialization and context
+│   ├── query-client.ts        # TanStack Query client configuration
+│   └── routers/
+│       └── _app.ts            # Main tRPC router
 └── public/
-  └── logo.svg               # Meet.AI brand logo
-```
-
-## 🌙 Theme System
+    └── logo.svg               # Meet.AI brand logo
+```## 🌙 Theme System
 
 The application features a sophisticated theme system:
 
@@ -269,16 +317,21 @@ The application features a sophisticated theme system:
 ## 🔧 Development
 
 ### Code Quality
+
 - **TypeScript** for type safety
 - **ESLint** for code linting
 - **Prettier** for code formatting
 - **Strict type checking** enabled
 
 ### New & Updated Dependencies
-- **react-icons:** Used for scalable Google and GitHub icons in social login buttons
-- **@dicebear/collection, @dicebear/core:** Used for dynamic user avatars in dashboard sidebar
+
+- **react-icons:** Used for scalable Google and GitHub icons in social login
+  buttons
+- **@dicebear/collection, @dicebear/core:** Used for dynamic user avatars in
+  dashboard sidebar
 
 ### Performance
+
 - **Turbopack** for fast development builds
 - **Tree-shaking** for optimized bundles
 - **Component lazy loading** where appropriate
@@ -286,16 +339,19 @@ The application features a sophisticated theme system:
 ## 📚 Learn More
 
 ### Next.js Resources
+
 - [Next.js Documentation](https://nextjs.org/docs) - comprehensive Next.js guide
 - [Learn Next.js](https://nextjs.org/learn) - interactive tutorial
 - [Next.js GitHub](https://github.com/vercel/next.js) - source code and issues
 
 ### Component Library
+
 - [shadcn/ui Documentation](https://ui.shadcn.com) - component library docs
 - [Radix UI](https://www.radix-ui.com) - primitive components
 - [Tailwind CSS](https://tailwindcss.com) - utility-first CSS framework
 
 ### Database
+
 - [Drizzle ORM](https://orm.drizzle.team) - TypeScript ORM
 - [Neon](https://neon.tech) - serverless PostgreSQL
 
@@ -313,6 +369,7 @@ Deploy easily on [Vercel Platform](https://vercel.com/new):
 ### Other Platforms
 
 The application can be deployed on any platform that supports Next.js:
+
 - Netlify
 - Railway
 - Digital Ocean
@@ -325,4 +382,5 @@ This project is private and proprietary.
 
 ## 🤝 Contributing
 
-This is a personal project. If you have suggestions or find issues, please create an issue in the repository.
+This is a personal project. If you have suggestions or find issues, please
+create an issue in the repository.

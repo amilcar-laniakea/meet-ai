@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2025-08-14
+
+### ✨ Added
+- **Social Authentication:** Integrated Google and GitHub OAuth login using better-auth with secure callback handling.
+- **Social Login UI:** Added branded Google and GitHub sign-in buttons to authentication forms with loading and error states.
+- **Home Module:** Modularized home page UI into `/modules/home/ui/views/home-view.tsx` for session-based rendering and sign-out.
+- **React Icons:** Added `react-icons` dependency for scalable social provider icons.
+
+### 🎨 UI/UX Enhancements
+- **Unified Auth Experience:** Both sign-in and sign-up forms now support social login and improved error handling.
+- **Loading States:** Enhanced feedback for all authentication actions, including social logins.
+- **Refined Layout:** Updated root layout and favicon for consistent branding.
+
+### 🏗️ Refactors & Improvements
+- **Async Auth Pages:** `/sign-in` and `/sign-up` pages now use server-side session checks and redirect logic.
+- **Auth Logic:** Centralized social provider config in `auth.ts` for maintainability.
+- **Type Safety:** Improved type coverage in new and refactored modules.
+
+### 🐛 Fixes
+- **Minor UI/UX Fixes:** Improved accessibility, error messaging, and button states in authentication flows.
+
+---
+
 ## [0.2.0] - 2025-08-13
 
 ### ✨ Added

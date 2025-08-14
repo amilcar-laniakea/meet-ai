@@ -6,8 +6,8 @@ import { z } from 'zod';
 import { Loader2Icon, OctagonAlertIcon } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 import { authClient } from '@/lib/auth-client';
 import { Input } from '@/components/ui/input';
@@ -31,7 +31,6 @@ const formSchema = z.object({
 });
 
 export const SignInView = () => {
-  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -50,12 +49,32 @@ export const SignInView = () => {
       await authClient.signIn.email(
         {
           email: data.email,
-          password: data.password
+          password: data.password,
+          callbackURL: '/'
         },
         {
-          onSuccess: () => {
-            router.push('/');
-          },
+          onError: ({ error }) => {
+            setError(error.message);
+          }
+        }
+      );
+    } catch {
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onSocial = async (provider: 'google' | 'github') => {
+    setError(null);
+    setLoading(true);
+    try {
+      await authClient.signIn.social(
+        {
+          provider: provider,
+          callbackURL: '/'
+        },
+        {
           onError: ({ error }) => {
             setError(error.message);
           }
@@ -150,15 +169,25 @@ export const SignInView = () => {
                     disabled={loading}
                     variant="outline"
                     className="w-full"
+                    onClick={() => onSocial('google')}
                   >
-                    Google
+                    {loading ? (
+                      <Loader2Icon className="animate-spin" />
+                    ) : (
+                      <FaGoogle />
+                    )}
                   </Button>
                   <Button
                     disabled={loading}
                     variant="outline"
                     className="w-full"
+                    onClick={() => onSocial('github')}
                   >
-                    GitHub
+                    {loading ? (
+                      <Loader2Icon className="animate-spin" />
+                    ) : (
+                      <FaGithub />
+                    )}
                   </Button>
                 </div>
                 <div className="text-center text-sm">

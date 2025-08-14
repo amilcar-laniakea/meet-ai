@@ -6,8 +6,10 @@ import { z } from 'zod';
 import { Loader2Icon, OctagonAlertIcon } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import Image from 'next/image';
 
 import { authClient } from '@/lib/auth-client';
 import { Input } from '@/components/ui/input';
@@ -21,7 +23,6 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { Alert, AlertTitle } from '@/components/ui/alert';
-import Image from 'next/image';
 
 const formSchema = z
   .object({
@@ -67,12 +68,35 @@ export const SignUpView = () => {
         {
           name: data.name,
           email: data.email,
-          password: data.password
+          password: data.password,
+          callbackURL: '/'
         },
         {
           onSuccess: () => {
             router.push('/');
           },
+          onError: ({ error }) => {
+            setError(error.message);
+          }
+        }
+      );
+    } catch {
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onSocial = async (provider: 'google' | 'github') => {
+    setError(null);
+    setLoading(true);
+    try {
+      await authClient.signIn.social(
+        {
+          provider: provider,
+          callbackURL: '/'
+        },
+        {
           onError: ({ error }) => {
             setError(error.message);
           }
@@ -111,6 +135,7 @@ export const SignUpView = () => {
                           <Input
                             type="text"
                             placeholder="Jhon Doe"
+                            disabled={loading}
                             {...field}
                           />
                         </FormControl>
@@ -128,6 +153,7 @@ export const SignUpView = () => {
                           <Input
                             type="email"
                             placeholder="example@example.com"
+                            disabled={loading}
                             {...field}
                           />
                         </FormControl>
@@ -145,6 +171,7 @@ export const SignUpView = () => {
                           <Input
                             type="password"
                             placeholder="********"
+                            disabled={loading}
                             {...field}
                           />
                         </FormControl>
@@ -164,6 +191,7 @@ export const SignUpView = () => {
                           <Input
                             type="password"
                             placeholder="********"
+                            disabled={loading}
                             {...field}
                           />
                         </FormControl>
@@ -198,18 +226,30 @@ export const SignUpView = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <Button
+                    type="button"
                     disabled={loading}
                     variant="outline"
                     className="w-full"
+                    onClick={() => onSocial('google')}
                   >
-                    Google
+                    {loading ? (
+                      <Loader2Icon className="animate-spin" />
+                    ) : (
+                      <FaGoogle />
+                    )}
                   </Button>
                   <Button
+                    type="button"
                     disabled={loading}
                     variant="outline"
                     className="w-full"
+                    onClick={() => onSocial('github')}
                   >
-                    GitHub
+                    {loading ? (
+                      <Loader2Icon className="animate-spin" />
+                    ) : (
+                      <FaGithub />
+                    )}
                   </Button>
                 </div>
                 <div className="text-center text-sm">

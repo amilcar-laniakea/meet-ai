@@ -10,10 +10,15 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 - **Dedicated Authentication Pages** at `/sign-in` and `/sign-up` routes
 - **Session Management** with persistent login state
 - **Brand Integration** with custom Meet.AI logo and consistent styling
-- **Social Login Ready** with Google and GitHub UI elements prepared
+- **Social Authentication:** Google and GitHub OAuth login fully integrated with branded buttons and secure callback handling
 - **Better-Auth Integration** with type-safe APIs and comprehensive error handling
 
-### 🎨 **Modern UI Components**
+### � **Social Login**
+- **Google and GitHub OAuth:** Sign in and sign up with your Google or GitHub account
+- **Branded Social Buttons:** UI includes Google and GitHub icons (via `react-icons`) and loading/error states
+- **Centralized Provider Config:** Social provider setup managed in `auth.ts` for maintainability
+
+### �🎨 **Modern UI Components**
 - **40+ shadcn/ui components** with Radix UI primitives
 - **Complete accessibility** with ARIA compliance and keyboard navigation
 - **Responsive design** with mobile-first approach
@@ -107,7 +112,7 @@ npm run db-studio    # Open Drizzle Studio
 - **Form Validation** with real-time feedback and error handling
 - **Loading States** with smooth animations during authentication
 - **Password Confirmation** for secure user registration
-- **Social Login UI** ready for Google and GitHub integration
+- **Social Login:** Google and GitHub OAuth login with branded buttons and error/loading feedback
 
 ### 📱 **Responsive Design**
 - **Mobile-First** authentication forms optimized for all devices
@@ -203,7 +208,18 @@ src/
 │   ├── api/auth/[...all]/   # Authentication API routes
 │   ├── globals.css          # Global styles and theme
 │   ├── layout.tsx           # Root layout component
-│   └── page.tsx            # Home page with auth demo
+│   └── page.tsx            # Home page (now async, redirects if not authenticated)
+├── modules/
+│   ├── auth/
+│   │   └── ui/
+│   │       ├── views/
+│   │       │   ├── sign-in-view.tsx
+│   │       │   └── sign-up-view.tsx
+│   │       └── ...
+│   └── home/
+│       └── ui/
+│           └── views/
+│               └── home-view.tsx   # Home page UI, session-based rendering
 ├── components/
 │   └── ui/                 # shadcn/ui components
 ├── db/
@@ -215,11 +231,6 @@ src/
 │   ├── auth.ts             # Better-auth server configuration
 │   ├── auth-client.ts      # Better-auth client configuration
 │   └── utils.ts            # Utility functions
-├── modules/
-│   └── auth/
-│       └── ui/             # Authentication UI components
-│           ├── sign-in-view.tsx
-│           └── sign-up-view.tsx
 └── public/
     └── logo.svg            # Meet.AI brand logo
 ```
@@ -246,6 +257,9 @@ The application features a sophisticated theme system:
 - **ESLint** for code linting
 - **Prettier** for code formatting
 - **Strict type checking** enabled
+
+### New & Updated Dependencies
+- **react-icons:** Used for scalable Google and GitHub icons in social login buttons
 
 ### Performance
 - **Turbopack** for fast development builds

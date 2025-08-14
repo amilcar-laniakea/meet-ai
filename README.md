@@ -23,6 +23,7 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 - **Dashboard Layout:** `/dashboard` route group with sidebar navigation for authenticated users
 - **Sidebar Navigation:** Modular sidebar with navigation, user menu, and avatar
 - **DiceBear Avatars:** Dynamic user avatars using DiceBear for personalized experience
+- **Dashboard Navbar:** Modular dashboard navigation bar for improved navigation and user experience
 - **40+ shadcn/ui components** with Radix UI primitives
 - **Complete accessibility** with ARIA compliance and keyboard navigation
 - **Responsive design** with mobile-first approach
@@ -202,41 +203,52 @@ export const verification = pgTable('verification', {
 
 ## 🎯 Project Structure
 
+
 ```
 src/
 ├── app/
-│   ├── (auth)/              # Authentication route group
-│   │   ├── layout.tsx       # Auth-specific layout
-│   │   ├── sign-in/page.tsx # Sign-in page
-│   │   └── sign-up/page.tsx # Sign-up page
-│   ├── api/auth/[...all]/   # Authentication API routes
-│   ├── globals.css          # Global styles and theme
-│   ├── layout.tsx           # Root layout component
-│   └── page.tsx            # Home page (now async, redirects if not authenticated)
+│   ├── (auth)/                # Authentication route group
+│   │   ├── layout.tsx         # Auth-specific layout
+│   │   ├── sign-in/page.tsx   # Sign-in page
+│   │   └── sign-up/page.tsx   # Sign-up page
+│   ├── (dashboard)/           # Dashboard route group for authenticated users
+│   │   ├── layout.tsx         # Dashboard layout with sidebar/navbar
+│   │   └── page.tsx           # Dashboard home page
+│   ├── api/auth/[...all]/     # Authentication API routes
+│   ├── favicon.ico            # App favicon
+│   ├── globals.css            # Global styles and theme
+│   ├── layout.tsx             # Root layout component
 ├── modules/
 │   ├── auth/
 │   │   └── ui/
-│   │       ├── views/
-│   │       │   ├── sign-in-view.tsx
-│   │       │   └── sign-up-view.tsx
-│   │       └── ...
+│   │       └── views/
+│   │           ├── sign-in-view.tsx
+│   │           └── sign-up-view.tsx
+│   ├── dashboard/
+│   │   └── ui/
+│   │       └── components/
+│   │           ├── dasboard-navbar.tsx
+│   │           ├── dashboard-command.tsx
+│   │           ├── dashboard-sidebar.tsx
+│   │           └── dashboard-user-button.tsx
 │   └── home/
 │       └── ui/
 │           └── views/
-│               └── home-view.tsx   # Home page UI, session-based rendering
+│               └── home-view.tsx
 ├── components/
-│   └── ui/                 # shadcn/ui components
+│   ├── ui/                    # shadcn/ui components
+│   └── generated-avatar.tsx   # DiceBear avatar component
 ├── db/
-│   ├── index.ts            # Database connection
-│   └── schema.ts           # Database schema with auth tables
+│   ├── index.ts               # Database connection
+│   └── schema.ts              # Database schema with auth tables
 ├── hooks/
-│   └── use-mobile.ts       # Mobile detection hook
+│   └── use-mobile.ts          # Mobile detection hook
 ├── lib/
-│   ├── auth.ts             # Better-auth server configuration
-│   ├── auth-client.ts      # Better-auth client configuration
-│   └── utils.ts            # Utility functions
+│   ├── auth.ts                # Better-auth server configuration
+│   ├── auth-client.ts         # Better-auth client configuration
+│   └── utils.ts               # Utility functions
 └── public/
-    └── logo.svg            # Meet.AI brand logo
+  └── logo.svg               # Meet.AI brand logo
 ```
 
 ## 🌙 Theme System

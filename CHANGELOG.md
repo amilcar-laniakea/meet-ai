@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2025-08-14
+
+### ✨ Added
+- **Dashboard Navbar:** Added a new, modular dashboard navigation bar for improved user experience and navigation within the dashboard.
+- **Sidebar Enhancements:** Improved sidebar structure, navigation, and user menu for better usability.
+- **Avatar Improvements:** Enhanced DiceBear avatar integration and fallback logic in the dashboard user menu.
+
+### 🎨 UI/UX Enhancements
+- **Navigation Clarity:** Clearer active states and navigation cues in the dashboard sidebar and navbar.
+- **Accessibility:** Improved keyboard navigation and ARIA support in dashboard navigation components.
+
+### 🏗️ Refactors & Improvements
+- **Component Modularization:** Further modularized dashboard navigation and sidebar components for maintainability.
+
+---
+
 ## [0.4.0] - 2025-08-14
 
 ### ✨ Added

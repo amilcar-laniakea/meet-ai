@@ -35,7 +35,13 @@ export const DashboardSidebar = () => {
     <Sidebar>
       <SidebarHeader className="text-sidebar-accent-foreground">
         <Link href="/" className="flex items-center gap-2 px-2 pt-2">
-          <Image src="/logo.svg" alt="Meet.AI" width={36} height={36} />
+          <Image
+            src="/logo.svg"
+            alt="Meet.AI"
+            width={36}
+            height={36}
+            className="w-[36px] h-[36px]"
+          />
           <p className="text-2xl font-semibold">Meet.AI</p>
         </Link>
       </SidebarHeader>
@@ -52,10 +58,14 @@ export const DashboardSidebar = () => {
                     asChild
                     className={cn(
                       'h-10 hover:bg-linear-to-r/oklch border border-transparent hover:border-[#5D6B68]/10 from-sidebar-accent from-5% via-30% via-sidebar/10 to-sidebar/50',
-                      pathname === item.href &&
+                      (pathname === item.href ||
+                        pathname.startsWith(`${item.href}/`)) &&
                         'bg-linear-to-r/oklch border-[#5D6B68]/10'
                     )}
-                    isActive={pathname === item.href}
+                    isActive={
+                      pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`)
+                    }
                   >
                     <Link href={item.href}>
                       <item.icon className="size-5" />
@@ -81,10 +91,14 @@ export const DashboardSidebar = () => {
                     asChild
                     className={cn(
                       'h-10 hover:bg-linear-to-r/oklch border border-transparent hover:border-[#5D6B68]/10 from-sidebar-accent from-5% via-30% via-sidebar/10 to-sidebar/50',
-                      pathname === item.href &&
+                      (pathname === item.href ||
+                        pathname.startsWith(`${item.href}/`)) &&
                         'bg-linear-to-r/oklch border-[#5D6B68]/10'
                     )}
-                    isActive={pathname === item.href}
+                    isActive={
+                      pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`)
+                    }
                   >
                     <Link href={item.href}>
                       <item.icon className="size-5" />

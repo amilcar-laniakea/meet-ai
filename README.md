@@ -5,11 +5,13 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 ## 🚀 Features
 
 ### 🔐 **Authentication System**
-- **Email/Password Authentication** with secure validation
+- **Professional Authentication UI** with modern, polished design
+- **Email/Password Authentication** with secure validation and password confirmation
+- **Dedicated Authentication Pages** at `/sign-in` and `/sign-up` routes
 - **Session Management** with persistent login state
-- **User Registration** with email verification support
-- **WebAuthn/Passkey Support** for enhanced security
-- **Better-Auth Integration** with type-safe APIs
+- **Brand Integration** with custom Meet.AI logo and consistent styling
+- **Social Login Ready** with Google and GitHub UI elements prepared
+- **Better-Auth Integration** with type-safe APIs and comprehensive error handling
 
 ### 🎨 **Modern UI Components**
 - **40+ shadcn/ui components** with Radix UI primitives
@@ -32,8 +34,10 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 ### ⚡ **Performance & Developer Experience**
 - **Turbopack** for lightning-fast development builds
 - **TypeScript** with strict type checking
-- **ESLint + Prettier** for code quality
+- **Enhanced VS Code Settings** with optimized workspace configuration
+- **ESLint + Prettier** with streamlined configuration
 - **Hot reload** with instant feedback
+- **Modular Architecture** with feature-based organization
 
 ## 🛠️ Tech Stack
 
@@ -94,6 +98,28 @@ npm run format:check # Check code formatting
 npm run db:push      # Push database schema
 npm run db-studio    # Open Drizzle Studio
 ```
+
+## 🎨 Authentication Features
+
+### 🔑 **Modern Authentication Flow**
+- **Professional Sign-In/Sign-Up Pages** with responsive two-column design
+- **Brand Integration** with Meet.AI logo and consistent blue theme
+- **Form Validation** with real-time feedback and error handling
+- **Loading States** with smooth animations during authentication
+- **Password Confirmation** for secure user registration
+- **Social Login UI** ready for Google and GitHub integration
+
+### 📱 **Responsive Design**
+- **Mobile-First** authentication forms optimized for all devices
+- **Desktop Enhancement** with branded side panels on larger screens
+- **Touch-Friendly** interactions with proper button sizing
+- **Adaptive Layouts** that work seamlessly across screen sizes
+
+### 🛡️ **Security Features**
+- **Form Protection** against multiple submissions with loading states
+- **Input Validation** with Zod schema and TypeScript type safety
+- **Secure Error Handling** without exposing sensitive information
+- **Legal Compliance** with terms of service and privacy policy integration
 
 ## 🎨 UI Components
 
@@ -170,21 +196,32 @@ export const verification = pgTable('verification', {
 ```
 src/
 ├── app/
-│   ├── api/auth/[...all]/ # Authentication API routes
-│   ├── globals.css        # Global styles and theme
-│   ├── layout.tsx         # Root layout component
-│   └── page.tsx          # Home page with auth demo
+│   ├── (auth)/              # Authentication route group
+│   │   ├── layout.tsx       # Auth-specific layout
+│   │   ├── sign-in/page.tsx # Sign-in page
+│   │   └── sign-up/page.tsx # Sign-up page
+│   ├── api/auth/[...all]/   # Authentication API routes
+│   ├── globals.css          # Global styles and theme
+│   ├── layout.tsx           # Root layout component
+│   └── page.tsx            # Home page with auth demo
 ├── components/
-│   └── ui/               # shadcn/ui components
+│   └── ui/                 # shadcn/ui components
 ├── db/
-│   ├── index.ts          # Database connection
-│   └── schema.ts         # Database schema with auth tables
+│   ├── index.ts            # Database connection
+│   └── schema.ts           # Database schema with auth tables
 ├── hooks/
-│   └── use-mobile.ts     # Mobile detection hook
-└── lib/
-    ├── auth.ts           # Better-auth server configuration
-    ├── auth-client.ts    # Better-auth client configuration
-    └── utils.ts          # Utility functions
+│   └── use-mobile.ts       # Mobile detection hook
+├── lib/
+│   ├── auth.ts             # Better-auth server configuration
+│   ├── auth-client.ts      # Better-auth client configuration
+│   └── utils.ts            # Utility functions
+├── modules/
+│   └── auth/
+│       └── ui/             # Authentication UI components
+│           ├── sign-in-view.tsx
+│           └── sign-up-view.tsx
+└── public/
+    └── logo.svg            # Meet.AI brand logo
 ```
 
 ## 🌙 Theme System

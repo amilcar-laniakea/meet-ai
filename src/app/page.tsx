@@ -14,13 +14,13 @@ export default function Home() {
   const onSubmit = () => {
     authClient.signUp.email(
       {
-        email, // user email address
-        password, // user password -> min 8 characters by default
-        name // user display name
+        email,
+        password,
+        name
       },
       {
-        onSuccess: ctx => {
-          window.alert(`User created successfully! Welcome, ${ctx.data.name}!`);
+        onSuccess: () => {
+          window.alert('User created successfully! Welcome!');
         },
         onError: ctx => {
           window.alert(`Error creating user: ${ctx.error.message}`);
@@ -36,7 +36,7 @@ export default function Home() {
         password
       },
       {
-        onSuccess: ctx => {
+        onSuccess: () => {
           console.log(`User signed in successfully! Welcome!`);
         },
         onError: ctx => {

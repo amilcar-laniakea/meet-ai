@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2025-08-14
+
+### ✨ Added
+- **Dashboard Layout:** Introduced `/dashboard` route group with a sidebar and modular layout for authenticated users.
+- **Sidebar Navigation:** Feature-rich sidebar with navigation sections, user menu, and avatar.
+- **DiceBear Avatars:** Dynamic user avatars using DiceBear (`@dicebear/collection`, `@dicebear/core`).
+- **GeneratedAvatar Component:** New `GeneratedAvatar` React component for rendering avatars based on user name.
+
+### 🎨 UI/UX Enhancements
+- **Sidebar Styling:** Custom sidebar color tokens and gradients for improved appearance.
+- **Dashboard User Menu:** User dropdown with avatar, email, and logout/billing actions.
+- **Consistent Theming:** Updated global and sidebar color variables for better brand consistency.
+
+### 🏗️ Refactors & Improvements
+- **Component Organization:** Modularized dashboard and sidebar components under `/modules/dashboard/ui/components/`.
+- **Type Safety:** Improved prop types and structure for new components.
+
+### 🐛 Fixes
+- **Minor UI/UX Fixes:** Improved sidebar active state, avatar fallback, and dropdown menu accessibility.
+
+---
+
 ## [0.3.0] - 2025-08-14
 
 ### ✨ Added

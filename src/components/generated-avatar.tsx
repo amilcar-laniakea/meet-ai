@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { createAvatar } from '@dicebear/core';
 import { botttsNeutral, initials } from '@dicebear/collection';
 
@@ -13,26 +14,25 @@ interface GeneratedAvatarProps {
 export const GeneratedAvatar = ({
   seed,
   className,
-  variant
+  variant = 'initials'
 }: GeneratedAvatarProps) => {
-  let avatar;
+  const s = (seed ?? '').trim() || 'U';
 
-  if (variant === 'botttsNeutral') {
-    avatar = createAvatar(botttsNeutral, {
-      seed
-    });
-  } else {
-    avatar = createAvatar(initials, {
-      seed,
+  const avatar = useMemo(() => {
+    if (variant === 'botttsNeutral') {
+      return createAvatar(botttsNeutral, { seed: s });
+    }
+    return createAvatar(initials, {
+      seed: s,
       fontWeight: 500,
       fontSize: 42
     });
-  }
+  }, [s, variant]);
 
   return (
     <Avatar className={cn(className)}>
-      <AvatarImage src={avatar.toDataUri()} alt="Avatar" />
-      <AvatarFallback>{seed.charAt(0).toUpperCase()}</AvatarFallback>
+      <AvatarImage src={avatar.toDataUri()} alt={`Avatar for ${s}`} />+{' '}
+      <AvatarFallback>{s.charAt(0).toUpperCase()}</AvatarFallback>
     </Avatar>
   );
 };

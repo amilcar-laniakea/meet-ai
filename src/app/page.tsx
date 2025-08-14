@@ -36,7 +36,7 @@ export default function Home() {
         password
       },
       {
-        onSuccess: ctx => {
+        onSuccess: () => {
           console.log(`User signed in successfully! Welcome!`);
         },
         onError: ctx => {

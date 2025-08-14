@@ -1,6 +1,7 @@
 {
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 90,
+  "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
@@ -17,5 +18,9 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.compactFolders": false,
+  "files.associations": {
+    "*.svg": "html"
   }
 }

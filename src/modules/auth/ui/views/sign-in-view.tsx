@@ -202,7 +202,7 @@ export const SignInView = () => {
               </div>
             </form>
           </Form>
-          <div className="bg-radial from from-blue-900 to-blue-950 relative hidden md:flex flex-col gap-y-4 items-center justify-center p-4">
+          <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center p-4">
             <Image
               src={'/logo.svg'}
               width={100}

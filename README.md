@@ -13,12 +13,16 @@ A modern, full-stack web application built with Next.js 15, featuring a comprehe
 - **Social Authentication:** Google and GitHub OAuth login fully integrated with branded buttons and secure callback handling
 - **Better-Auth Integration** with type-safe APIs and comprehensive error handling
 
-### � **Social Login**
+### 🌐 **Social Login**
 - **Google and GitHub OAuth:** Sign in and sign up with your Google or GitHub account
 - **Branded Social Buttons:** UI includes Google and GitHub icons (via `react-icons`) and loading/error states
 - **Centralized Provider Config:** Social provider setup managed in `auth.ts` for maintainability
 
-### �🎨 **Modern UI Components**
+### 🎨 **Modern UI Components**
+### 🧑‍💼 **Dashboard & Sidebar**
+- **Dashboard Layout:** `/dashboard` route group with sidebar navigation for authenticated users
+- **Sidebar Navigation:** Modular sidebar with navigation, user menu, and avatar
+- **DiceBear Avatars:** Dynamic user avatars using DiceBear for personalized experience
 - **40+ shadcn/ui components** with Radix UI primitives
 - **Complete accessibility** with ARIA compliance and keyboard navigation
 - **Responsive design** with mobile-first approach
@@ -260,6 +264,7 @@ The application features a sophisticated theme system:
 
 ### New & Updated Dependencies
 - **react-icons:** Used for scalable Google and GitHub icons in social login buttons
+- **@dicebear/collection, @dicebear/core:** Used for dynamic user avatars in dashboard sidebar
 
 ### Performance
 - **Turbopack** for fast development builds

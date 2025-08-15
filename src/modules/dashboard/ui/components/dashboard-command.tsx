@@ -1,5 +1,5 @@
 import {
-  CommandDialog,
+  CommandResponsiveDialog,
   CommandInput,
   CommandItem,
   CommandList
@@ -14,13 +14,13 @@ interface Props {
 
 export const DashboardCommand = ({ open, setOpen }: Props) => {
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandResponsiveDialog open={open} onOpenChange={setOpen}>
       <CommandInput placeholder="find a meeting or a agent" />
       <CommandList>
         <CommandItem>Meeting 1</CommandItem>
         <CommandItem>Meeting 2</CommandItem>
         <CommandItem>Meeting 3</CommandItem>
       </CommandList>
-    </CommandDialog>
+    </CommandResponsiveDialog>
   );
 };

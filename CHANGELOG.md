@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2025-08-15
+
+### ✨ Added
+- **Responsive Dialog Component:** New `ResponsiveDialog` component that adapts to mobile/desktop with automatic Drawer/Dialog switching
+- **Command Responsive Dialog:** Enhanced command palette with mobile-responsive behavior using Drawer on mobile and Dialog on desktop
+- **Mobile Command Palette:** Improved command palette experience for mobile devices with drawer-based UI
+
+### 🎨 UI/UX Enhancements
+- **Adaptive UI Components:** Seamless mobile/desktop experience with context-aware component rendering
+- **Mobile-First Command Interface:** Command palette automatically switches to drawer on mobile devices for better UX
+- **Button Cursor Enhancement:** Added cursor pointer styling for all interactive buttons (disabled by default in Tailwind 4)
+
+### 🏗️ Component Architecture
+- **Reusable Responsive Patterns:** Established pattern for mobile/desktop adaptive components
+- **Hook-Based Responsiveness:** Leveraged `useIsMobile` hook for consistent responsive behavior
+- **Component Composition:** Improved component modularity with responsive variants
+
+### 🔧 Development Experience
+- **Type Safety:** Full TypeScript support for responsive dialog props and mobile detection
+- **Clean API:** Simple props interface for responsive dialog components
+- **Component Reusability:** Generic responsive dialog pattern for future component implementations
+
+---
+
 ## [0.7.0] - 2025-08-15
 
 ### ✨ Added

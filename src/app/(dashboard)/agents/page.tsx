@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
+import { SearchParams } from 'nuqs';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -11,9 +13,15 @@ import {
   AgentsViewLoading
 } from '@/modules/agents/ui/views/agents-view';
 import { AgentsListHeader } from '@/modules/agents/ui/components/agents-list-header';
-import { headers } from 'next/headers';
+import { loadSearchParams } from '@/modules/agents/params';
 
-const Agents = async () => {
+interface Props {
+  searchParams: Promise<SearchParams>;
+}
+
+const Agents = async ({ searchParams }: Props) => {
+  const params = await loadSearchParams(searchParams);
+
   const session = await auth.api.getSession({
     headers: await headers()
   });
@@ -23,7 +31,9 @@ const Agents = async () => {
   }
 
   const queryClient = getQueryClient();
-  void queryClient.prefetchQuery(trpc.agents.getMany.queryOptions());
+  void queryClient.prefetchQuery(
+    trpc.agents.getMany.queryOptions({ ...params })
+  );
 
   return (
     <>

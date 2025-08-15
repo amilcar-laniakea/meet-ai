@@ -5,6 +5,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-08-15
+
+### ✨ Added
+- **URL State Management:** Integrated nuqs v2.4.3 for URL-based state management with search params
+- **Search Filtering:** Real-time search functionality for filtering agents by name
+- **Pagination System:** Complete pagination implementation with page navigation controls
+- **Advanced Query Handling:** Server-side filtering and pagination with proper query optimization
+- **Filter State Persistence:** URL-based filter state that persists across page refreshes and navigation
+
+### 🔍 Search & Filter Features
+- **Search Input Component:** Dedicated search component with icon and placeholder text
+- **Clear Filters Button:** One-click button to reset all active filters
+- **Real-time Search:** Instant search results with debounced input for optimal performance
+- **Empty Search Results:** Proper handling and display when no search results are found
+
+### 📄 Pagination Enhancement
+- **Data Pagination Component:** Reusable pagination component with Previous/Next navigation
+- **Page State Management:** URL-based page state with proper validation and constraints
+- **Total Pages Calculation:** Accurate page count calculation based on filtered results
+- **Navigation Controls:** Disabled states for first/last pages with proper button states
+
+### 🎛️ Query Parameters & State
+- **Search Params Integration:** nuqs integration for type-safe URL parameter handling
+- **Default Value Management:** Proper default values for page (1) and search (empty string)
+- **Clear on Default:** Automatic URL cleanup when values return to defaults
+- **Server-side Params Loading:** Server-side search parameter loading with validation
+
+### 🗄️ Database Enhancements
+- **ILIKE Search Implementation:** Case-insensitive search using Drizzle ORM's ilike operator
+- **Count Queries:** Separate count queries for accurate pagination total calculation
+- **Query Optimization:** Efficient querying with proper LIMIT, OFFSET, and WHERE clauses
+- **Order by Implementation:** Consistent ordering by creation date and ID for predictable results
+
+### 🎨 UI/UX Improvements
+- **Filter Controls:** Dedicated filter section in the agents list header
+- **Search Icon Integration:** Visual search indicator with proper positioning
+- **Clear Filters Visibility:** Conditional display of clear button when filters are active
+- **Loading State Handling:** Proper loading states during search and pagination operations
+
+### 🏗️ Architecture Improvements
+- **Custom Hooks:** useAgentsFilters hook for centralized filter state management
+- **Type-safe Parameters:** Full TypeScript support for all search parameters and filters
+- **Modular Components:** Separate components for search, pagination, and filter controls
+- **Server Actions Integration:** Proper server-side data fetching with client-side state sync
+
 ## [1.0.0] - 2025-08-15
 
 ### ✨ Added

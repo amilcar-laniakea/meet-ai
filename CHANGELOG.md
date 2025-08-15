@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2025-08-15
+
+### ✨ Added
+- **Agents Module:** Complete agents system with database schema, tRPC procedures, and UI views
+- **Agents Page:** New `/agents` dashboard page with data fetching, loading states, and error handling
+- **Meetings Page:** Basic meetings page structure for future implementation
+- **Database Schema:** New `agents` table with nanoid-generated IDs and user relationships
+- **Error/Loading Components:** Reusable `ErrorState` and `LoadingState` components for consistent UX
+- **React Error Boundary:** Added error boundary support for better error handling
+
+### 🗄️ Database & API
+- **Agents Schema:** Added complete agents table with fields for name, instructions, timestamps, and user association
+- **tRPC Agents Router:** New `agents.getMany` procedure for fetching user agents
+- **Database Integration:** Nanoid v5 integration for unique agent ID generation
+
+### 🎨 UI/UX Enhancements
+- **Suspense Integration:** Proper React Suspense usage with loading fallbacks
+- **Error States:** Comprehensive error handling with user-friendly error messages
+- **Loading States:** Animated loading indicators with descriptive text
+
+### 🔧 Development Experience
+- **Type Safety:** Full TypeScript support for agents data structure
+- **Server-Side Rendering:** Proper SSR with query prefetching for optimal performance
+- **React Query Integration:** Advanced caching and state management for agent data
+
+### 🐛 Bug Fixes
+- **Zod Schema:** Fixed email validation in sign-in and sign-up forms
+- **Package Scripts:** Corrected `db:studio` script command
+
+---
+
 ## [0.6.0] - 2025-08-14
 
 ### ✨ Added

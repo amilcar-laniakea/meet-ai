@@ -24,7 +24,7 @@ import { Alert, AlertTitle } from '@/components/ui/alert';
 import Image from 'next/image';
 
 const formSchema = z.object({
-  email: z.email({ message: 'Invalid email address' }),
+  email: z.string().email({ message: 'Invalid email address' }),
   password: z.string().min(1, {
     message: 'Password is required'
   })

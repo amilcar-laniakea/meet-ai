@@ -32,7 +32,7 @@ const formSchema = z
       .max(100, {
         message: 'Name must not exceed 100 characters'
       }),
-    email: z.email({ message: 'Invalid email address' }),
+    email: z.string().email({ message: 'Invalid email address' }),
     password: z.string().min(1, {
       message: 'Password is required'
     }),

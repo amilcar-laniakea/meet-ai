@@ -60,6 +60,9 @@ system.
 - **Agent Creation Form:** Complete form system with validation, avatar preview, and responsive design
 - **Protected Routes:** Authentication-required API endpoints with automatic redirects
 - **Toast Notifications:** Real-time feedback for agent operations with success/error messages
+- **Data Table System:** Professional agents listing with TanStack React Table integration
+- **Interactive Table:** Clickable rows, custom columns, and responsive design for agent management
+- **Empty State UI:** Beautiful empty state with custom illustrations when no agents exist
 
 ### 🎨 **Modern UI Components**
 
@@ -101,6 +104,7 @@ system.
 - **Frontend:** Next.js 15.4.6, React 19.1.0, TypeScript 5
 - **Authentication:** Better-Auth v1.2.8 with WebAuthn support
 - **API:** tRPC v11 with TanStack Query v5 for type-safe data fetching
+- **Data Tables:** TanStack React Table v8 for advanced table functionality
 - **Styling:** Tailwind CSS 4.0, PostCSS, tw-animate-css
 - **UI Components:** shadcn/ui, Radix UI, Lucide Icons
 - **Database:** Drizzle ORM, Neon PostgreSQL
@@ -309,7 +313,9 @@ src/
 │   │       ├── components/
 │   │       │   ├── agent-form.tsx        # Agent creation/edit form
 │   │       │   ├── agents-list-header.tsx # Header with New Agent button
-│   │       │   └── new-agent-dialog.tsx  # Responsive dialog for agent creation
+│   │       │   ├── new-agent-dialog.tsx  # Responsive dialog for agent creation
+│   │       │   ├── columns.tsx           # Data table column definitions
+│   │       │   └── data-table.tsx        # Reusable data table component
 │   │       └── views/
 │   │           └── agents-view.tsx
 │   ├── auth/
@@ -333,6 +339,7 @@ src/
 │   ├── responsive-dialog.tsx  # Adaptive Dialog/Drawer component for mobile/desktop
 │   ├── error-state.tsx        # Reusable error state component
 │   ├── loading-state.tsx      # Reusable loading state component
+│   ├── empty-state.tsx        # Reusable empty state component with illustrations
 │   └── generated-avatar.tsx   # DiceBear avatar component
 ├── db/
 │   ├── index.ts               # Database connection
@@ -351,6 +358,7 @@ src/
 │   └── routers/
 │       └── _app.ts            # Main tRPC router with agents
 └── public/
+    ├── empty.svg              # Empty state illustration
     └── logo.svg               # Meet.AI brand logo
 ```## 🌙 Theme System
 

@@ -18,7 +18,7 @@ import {
   DialogDescription
 } from '@/components/ui/dialog';
 
-interface ReponsiveDialogProps {
+interface ResponsiveDialogProps {
   title: string;
   description: string;
   children: React.ReactNode;
@@ -32,7 +32,7 @@ export const ResponsiveDialog = ({
   children,
   open,
   onOpenChange
-}: ReponsiveDialogProps) => {
+}: ResponsiveDialogProps) => {
   const isMobile = useIsMobile();
 
   if (isMobile) {

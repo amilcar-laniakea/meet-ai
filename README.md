@@ -64,6 +64,10 @@ system.
 - **Complete accessibility** with ARIA compliance and keyboard navigation
 - **Responsive design** with mobile-first approach
 - **Dark/Light theme support** with automatic system detection
+- **Responsive Dialog System:** Adaptive components that switch between Dialog
+  and Drawer based on device type
+- **Mobile-Responsive Command Palette:** Command interface that adapts to
+  mobile/desktop with optimal UX
 
 ### 🗄️ **Database Integration**
 
@@ -153,7 +157,7 @@ npm run lint         # Run ESLint
 npm run format       # Format code with Prettier
 npm run format:check # Check code formatting
 npm run db:push      # Push database schema
-npm run db-studio    # Open Drizzle Studio
+npm run db:studio    # Open Drizzle Studio
 ```
 
 ## 🎨 Authentication Features
@@ -232,9 +236,13 @@ export const user = pgTable('user', {
 
 // Agents table for AI agent management
 export const agents = pgTable('agents', {
-  id: text('id').primaryKey().$default(() => nanoid()),
+  id: text('id')
+    .primaryKey()
+    .$default(() => nanoid()),
   name: text('name').notNull(),
-  userId: text('user_id').notNull().references(() => user.id),
+  userId: text('user_id')
+    .notNull()
+    .references(() => user.id),
   instructions: text('instructions').notNull(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow()
@@ -269,7 +277,7 @@ export const verification = pgTable('verification', {
 
 ## 🎯 Project Structure
 
-```
+````
 src/
 ├── app/
 │   ├── (auth)/                # Authentication route group
@@ -311,7 +319,8 @@ src/
 │           └── views/
 │               └── home-view.tsx
 ├── components/
-│   ├── ui/                    # shadcn/ui components
+│   ├── ui/                    # shadcn/ui components (enhanced with responsive variants)
+│   ├── responsive-dialog.tsx  # Adaptive Dialog/Drawer component for mobile/desktop
 │   ├── error-state.tsx        # Reusable error state component
 │   ├── loading-state.tsx      # Reusable loading state component
 │   └── generated-avatar.tsx   # DiceBear avatar component
@@ -346,6 +355,9 @@ The application features a sophisticated theme system:
 
 - **Mobile-first approach** with Tailwind breakpoints
 - **Flexible layouts** that adapt to different screen sizes
+- **Adaptive Components** that automatically switch between mobile and desktop variants
+- **Responsive Dialog System** that uses Drawer on mobile and Dialog on desktop
+- **Context-Aware UI** with automatic mobile detection and component adaptation
 - **Touch-friendly interactions** for mobile devices
 
 ## 🔧 Development
@@ -418,3 +430,4 @@ This project is private and proprietary.
 
 This is a personal project. If you have suggestions or find issues, please
 create an issue in the repository.
+````

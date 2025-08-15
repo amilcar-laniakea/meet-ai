@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-08-15
+
+### ✨ Added
+- **Agent Detail Pages:** Individual agent detail pages with dynamic routing at `/agents/[agentId]`
+- **Breadcrumb Navigation:** Professional breadcrumb system for easy navigation between agents list and detail views
+- **Agent Action Menu:** Dropdown menu with Edit and Delete actions on agent detail pages
+- **Click-to-Navigate:** Clickable table rows that navigate to individual agent pages
+- **Enhanced Agent Security:** User-specific agent access with proper authorization checks
+
+### 🧭 Navigation Enhancements
+- **Dynamic Routing:** Next.js 15 dynamic routes with proper TypeScript support for agent IDs
+- **Breadcrumb Component:** Custom breadcrumb navigation showing "My Agents > Agent Name" hierarchy
+- **Back Navigation:** Easy navigation back to agents list from individual agent pages
+- **URL-based Agent Access:** Direct access to agent pages via URL with proper validation
+
+### 🔒 Security Improvements
+- **User-specific Agent Access:** Enhanced database queries to ensure users can only access their own agents
+- **404 Error Handling:** Proper NOT_FOUND errors when agents don't exist or don't belong to the user
+- **Authorization Checks:** Server-side user validation for all agent detail page requests
+- **Protected Agent Routes:** Authenticated-only access to individual agent pages
+
+### 🎨 UI/UX Enhancements
+- **Agent Detail Layout:** Clean, professional layout showing agent information, instructions, and meeting stats
+- **Avatar Integration:** DiceBear avatars displayed prominently on agent detail pages
+- **Meeting Count Badges:** Visual indicators showing meeting statistics for each agent
+- **Action Menu Design:** Modern dropdown menu with edit and delete options using Lucide icons
+
+### 🏗️ Component Architecture
+- **Agent View Header Component:** Reusable header component with breadcrumbs and action menu
+- **Agent Detail View:** Dedicated view component for individual agent pages with proper loading states
+- **Error Boundary Integration:** React error boundaries for robust error handling on agent pages
+- **Suspense Loading:** React Suspense integration for optimal loading experience
+
+### 🔧 Technical Improvements
+- **Parameter Naming Fix:** Corrected typo in search parameters (filtersSeachParams → filtersSearchParams)
+- **tRPC Error Handling:** Proper TRPC error responses with appropriate error codes
+- **Context-aware Queries:** Enhanced database queries with user context for security
+- **Server-side Prefetching:** Query prefetching for optimal performance on agent detail pages
+
 ## [1.1.0] - 2025-08-15
 
 ### ✨ Added

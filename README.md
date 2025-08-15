@@ -66,6 +66,10 @@ system.
 - **Search & Filtering:** Real-time search functionality with URL state persistence using nuqs
 - **Pagination System:** Complete pagination with server-side data management and URL state
 - **Advanced Query Management:** Server-side filtering, searching, and pagination with optimized database queries
+- **Agent Detail Pages:** Individual agent pages with dynamic routing and comprehensive agent information
+- **Breadcrumb Navigation:** Professional navigation system for easy movement between agents list and detail views
+- **Agent Actions:** Edit and delete functionality accessible through dropdown menus on agent detail pages
+- **User-specific Access:** Enhanced security ensuring users can only access their own agents
 
 ### 🎨 **Modern UI Components**
 
@@ -297,7 +301,9 @@ src/
 │   │   ├── sign-in/page.tsx   # Sign-in page
 │   │   └── sign-up/page.tsx   # Sign-up page
 │   ├── (dashboard)/           # Dashboard route group for authenticated users
-│   │   ├── agents/page.tsx    # Agents management page with search params
+│   │   ├── agents/
+│   │   │   ├── [agentId]/page.tsx # Individual agent detail page with dynamic routing
+│   │   │   └── page.tsx       # Agents management page with search params
 │   │   ├── meetings/page.tsx  # Meetings page
 │   │   ├── layout.tsx         # Dashboard layout with sidebar/navbar
 │   │   └── page.tsx           # Dashboard home page
@@ -316,10 +322,11 @@ src/
 │   │   ├── schemas.ts         # Zod validation schemas for agents
 │   │   ├── types.ts           # TypeScript type definitions for agents
 │   │   ├── server/
-│   │   │   └── procedures.ts  # tRPC agents procedures with filtering/pagination
+│   │   │   └── procedures.ts  # tRPC agents procedures with filtering/pagination/security
 │   │   └── ui/
 │   │       ├── components/
 │   │       │   ├── agent-form.tsx            # Agent creation/edit form
+│   │       │   ├── agent-view-header.tsx     # Agent detail page header with breadcrumbs
 │   │       │   ├── agents-list-header.tsx    # Header with search and filters
 │   │       │   ├── agents-search-filter.tsx  # Search input component
 │   │       │   ├── new-agent-dialog.tsx      # Responsive dialog for agent creation
@@ -327,7 +334,8 @@ src/
 │   │       │   ├── data-table.tsx            # Reusable data table component
 │   │       │   └── data-pagination.tsx       # Pagination controls component
 │   │       └── views/
-│   │           └── agents-view.tsx           # Main agents view with filtering
+│   │           ├── agent-id-vew.tsx          # Individual agent detail view
+│   │           └── agents-view.tsx           # Main agents view with filtering and navigation
 │   ├── auth/
 │   │   └── ui/
 │   │       └── views/

@@ -47,6 +47,16 @@ system.
 - **Type-Safe Procedures:** Fully typed client-server communication
 - **Query Caching:** Efficient data fetching and caching with TanStack Query
 - **Server Components:** Proper server/client boundary with tRPC integration
+- **Agents System:** Complete agents management with database integration
+- **Error Boundaries:** React error boundary for robust error handling
+
+### 🤖 **Agents Management**
+
+- **Agents Module:** Full-featured agents system with CRUD operations
+- **Database Schema:** Dedicated agents table with user relationships
+- **Type-Safe API:** tRPC procedures for agents data management
+- **Loading States:** Comprehensive loading and error handling
+- **Suspense Integration:** React Suspense for optimal user experience
 
 ### 🎨 **Modern UI Components**
 
@@ -90,6 +100,8 @@ system.
 - **Development:** ESLint, Prettier, Turbopack
 - **Forms:** React Hook Form, Zod validation
 - **Charts:** Recharts for data visualization
+- **Utils:** nanoid v5 for unique ID generation
+- **Error Handling:** react-error-boundary for robust error boundaries
 
 ## 📦 Installation
 
@@ -218,6 +230,16 @@ export const user = pgTable('user', {
   updatedAt: timestamp('updated_at').notNull()
 });
 
+// Agents table for AI agent management
+export const agents = pgTable('agents', {
+  id: text('id').primaryKey().$default(() => nanoid()),
+  name: text('name').notNull(),
+  userId: text('user_id').notNull().references(() => user.id),
+  instructions: text('instructions').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow()
+});
+
 // Sessions table for authentication
 export const session = pgTable('session', {
   id: text('id').primaryKey(),
@@ -255,13 +277,23 @@ src/
 │   │   ├── sign-in/page.tsx   # Sign-in page
 │   │   └── sign-up/page.tsx   # Sign-up page
 │   ├── (dashboard)/           # Dashboard route group for authenticated users
+│   │   ├── agents/page.tsx    # Agents management page
+│   │   ├── meetings/page.tsx  # Meetings page
 │   │   ├── layout.tsx         # Dashboard layout with sidebar/navbar
 │   │   └── page.tsx           # Dashboard home page
-│   ├── api/auth/[...all]/     # Authentication API routes
+│   ├── api/
+│   │   ├── auth/[...all]/     # Authentication API routes
+│   │   └── trpc/[trpc]/       # tRPC API endpoint
 │   ├── favicon.ico            # App favicon
 │   ├── globals.css            # Global styles and theme
 │   ├── layout.tsx             # Root layout component
 ├── modules/
+│   ├── agents/
+│   │   ├── server/
+│   │   │   └── procedures.ts  # tRPC agents procedures
+│   │   └── ui/
+│   │       └── views/
+│   │           └── agents-view.tsx
 │   ├── auth/
 │   │   └── ui/
 │   │       └── views/
@@ -280,10 +312,12 @@ src/
 │               └── home-view.tsx
 ├── components/
 │   ├── ui/                    # shadcn/ui components
+│   ├── error-state.tsx        # Reusable error state component
+│   ├── loading-state.tsx      # Reusable loading state component
 │   └── generated-avatar.tsx   # DiceBear avatar component
 ├── db/
 │   ├── index.ts               # Database connection
-│   └── schema.ts              # Database schema with auth tables
+│   └── schema.ts              # Database schema with auth and agents tables
 ├── hooks/
 │   └── use-mobile.ts          # Mobile detection hook
 ├── lib/
@@ -296,7 +330,7 @@ src/
 │   ├── init.ts                # tRPC initialization and context
 │   ├── query-client.ts        # TanStack Query client configuration
 │   └── routers/
-│       └── _app.ts            # Main tRPC router
+│       └── _app.ts            # Main tRPC router with agents
 └── public/
     └── logo.svg               # Meet.AI brand logo
 ```## 🌙 Theme System

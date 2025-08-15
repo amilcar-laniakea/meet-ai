@@ -5,6 +5,46 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 2025-08-15
+
+### ✨ Added
+- **Agent Creation System:** Complete agent creation form with validation and responsive dialog
+- **Agent Form Component:** Comprehensive form with name and instructions fields, avatar preview, and validation
+- **New Agent Dialog:** Responsive dialog for creating new agents using the ResponsiveDialog component
+- **Agent List Header:** Header component with "New Agent" button and agents list management
+- **Protected Procedures:** Added authentication middleware for secure tRPC procedures
+- **Toast Notifications:** Global toast system with Sonner for user feedback
+- **Agent Types:** TypeScript types for agent data structures using tRPC inference
+
+### 🗄️ Database & API Enhancements
+- **Agent CRUD Operations:** Full create, read operations with tRPC procedures (`getOne`, `getMany`, `create`)
+- **Protected Routes:** Authentication-required procedures using `protectedProcedure` middleware
+- **Schema Validation:** Zod schemas for agent creation with proper validation rules
+- **Query Invalidation:** Automatic cache invalidation after agent operations
+
+### 🎨 UI/UX Improvements
+- **Dynamic Avatar Preview:** Real-time avatar generation based on agent name using DiceBear
+- **Form Validation:** Real-time form validation with error messages and disabled states
+- **Loading States:** Comprehensive loading indicators during form submission
+- **Responsive Forms:** Mobile-optimized form experience using ResponsiveDialog pattern
+- **Success Feedback:** Toast notifications for successful agent creation
+
+### 🔐 Security & Authentication
+- **Session Protection:** Automatic redirect to sign-in for unauthenticated users
+- **User Context:** Proper user session management in agent operations
+- **Type-Safe Auth:** Full TypeScript support for authentication context
+
+### 🔧 Development Experience
+- **Form Hooks Integration:** React Hook Form with Zod resolver for type-safe forms
+- **Query Client Integration:** TanStack Query for efficient data fetching and caching
+- **Component Composition:** Modular component architecture for reusable form patterns
+
+### 🐛 Bug Fixes
+- **ResponsiveDialog Interface:** Fixed typo in ResponsiveDialog interface name
+- **CSS Comments:** Improved CSS comment translation for better code readability
+
+---
+
 ## [0.8.0] - 2025-08-15
 
 ### ✨ Added

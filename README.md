@@ -57,6 +57,9 @@ system.
 - **Type-Safe API:** tRPC procedures for agents data management
 - **Loading States:** Comprehensive loading and error handling
 - **Suspense Integration:** React Suspense for optimal user experience
+- **Agent Creation Form:** Complete form system with validation, avatar preview, and responsive design
+- **Protected Routes:** Authentication-required API endpoints with automatic redirects
+- **Toast Notifications:** Real-time feedback for agent operations with success/error messages
 
 ### 🎨 **Modern UI Components**
 
@@ -106,6 +109,7 @@ system.
 - **Charts:** Recharts for data visualization
 - **Utils:** nanoid v5 for unique ID generation
 - **Error Handling:** react-error-boundary for robust error boundaries
+- **Notifications:** Sonner for toast notifications and user feedback
 
 ## 📦 Installation
 
@@ -297,9 +301,15 @@ src/
 │   ├── layout.tsx             # Root layout component
 ├── modules/
 │   ├── agents/
+│   │   ├── schemas.ts         # Zod validation schemas for agents
+│   │   ├── types.ts           # TypeScript type definitions for agents
 │   │   ├── server/
-│   │   │   └── procedures.ts  # tRPC agents procedures
+│   │   │   └── procedures.ts  # tRPC agents procedures with auth protection
 │   │   └── ui/
+│   │       ├── components/
+│   │       │   ├── agent-form.tsx        # Agent creation/edit form
+│   │       │   ├── agents-list-header.tsx # Header with New Agent button
+│   │       │   └── new-agent-dialog.tsx  # Responsive dialog for agent creation
 │   │       └── views/
 │   │           └── agents-view.tsx
 │   ├── auth/
@@ -336,7 +346,7 @@ src/
 ├── trpc/                      # tRPC setup and configuration
 │   ├── client.tsx             # Client-side tRPC and React Query setup
 │   ├── server.tsx             # Server-side tRPC setup
-│   ├── init.ts                # tRPC initialization and context
+│   ├── init.ts                # tRPC initialization, context, and protected procedures
 │   ├── query-client.ts        # TanStack Query client configuration
 │   └── routers/
 │       └── _app.ts            # Main tRPC router with agents

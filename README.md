@@ -63,6 +63,9 @@ system.
 - **Data Table System:** Professional agents listing with TanStack React Table integration
 - **Interactive Table:** Clickable rows, custom columns, and responsive design for agent management
 - **Empty State UI:** Beautiful empty state with custom illustrations when no agents exist
+- **Search & Filtering:** Real-time search functionality with URL state persistence using nuqs
+- **Pagination System:** Complete pagination with server-side data management and URL state
+- **Advanced Query Management:** Server-side filtering, searching, and pagination with optimized database queries
 
 ### 🎨 **Modern UI Components**
 
@@ -105,6 +108,7 @@ system.
 - **Authentication:** Better-Auth v1.2.8 with WebAuthn support
 - **API:** tRPC v11 with TanStack Query v5 for type-safe data fetching
 - **Data Tables:** TanStack React Table v8 for advanced table functionality
+- **URL State Management:** nuqs v2.4.3 for type-safe URL parameter handling
 - **Styling:** Tailwind CSS 4.0, PostCSS, tw-animate-css
 - **UI Components:** shadcn/ui, Radix UI, Lucide Icons
 - **Database:** Drizzle ORM, Neon PostgreSQL
@@ -293,7 +297,7 @@ src/
 │   │   ├── sign-in/page.tsx   # Sign-in page
 │   │   └── sign-up/page.tsx   # Sign-up page
 │   ├── (dashboard)/           # Dashboard route group for authenticated users
-│   │   ├── agents/page.tsx    # Agents management page
+│   │   ├── agents/page.tsx    # Agents management page with search params
 │   │   ├── meetings/page.tsx  # Meetings page
 │   │   ├── layout.tsx         # Dashboard layout with sidebar/navbar
 │   │   └── page.tsx           # Dashboard home page
@@ -302,22 +306,28 @@ src/
 │   │   └── trpc/[trpc]/       # tRPC API endpoint
 │   ├── favicon.ico            # App favicon
 │   ├── globals.css            # Global styles and theme
-│   ├── layout.tsx             # Root layout component
+│   ├── layout.tsx             # Root layout component with nuqs adapter
+├── constants.ts               # Application constants (pagination, etc.)
 ├── modules/
 │   ├── agents/
+│   │   ├── hooks/
+│   │   │   └── use-agents-filters.ts # Client-side filter state management
+│   │   ├── params.ts          # Server-side search params parsing
 │   │   ├── schemas.ts         # Zod validation schemas for agents
 │   │   ├── types.ts           # TypeScript type definitions for agents
 │   │   ├── server/
-│   │   │   └── procedures.ts  # tRPC agents procedures with auth protection
+│   │   │   └── procedures.ts  # tRPC agents procedures with filtering/pagination
 │   │   └── ui/
 │   │       ├── components/
-│   │       │   ├── agent-form.tsx        # Agent creation/edit form
-│   │       │   ├── agents-list-header.tsx # Header with New Agent button
-│   │       │   ├── new-agent-dialog.tsx  # Responsive dialog for agent creation
-│   │       │   ├── columns.tsx           # Data table column definitions
-│   │       │   └── data-table.tsx        # Reusable data table component
+│   │       │   ├── agent-form.tsx            # Agent creation/edit form
+│   │       │   ├── agents-list-header.tsx    # Header with search and filters
+│   │       │   ├── agents-search-filter.tsx  # Search input component
+│   │       │   ├── new-agent-dialog.tsx      # Responsive dialog for agent creation
+│   │       │   ├── columns.tsx               # Data table column definitions
+│   │       │   ├── data-table.tsx            # Reusable data table component
+│   │       │   └── data-pagination.tsx       # Pagination controls component
 │   │       └── views/
-│   │           └── agents-view.tsx
+│   │           └── agents-view.tsx           # Main agents view with filtering
 │   ├── auth/
 │   │   └── ui/
 │   │       └── views/

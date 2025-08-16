@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2025-08-16
+
+### ✨ Added
+- **Meetings Database Schema:** Added `meetings` table and `meeting_status` enum to Drizzle schema
+- **Meetings API:** tRPC router and procedures for meetings (getOne, getMany) with user validation and pagination
+- **Meetings Pages:** `/meetings` page with server-side data fetching and suspense loading, `/meetings/[meetingId]` dynamic route
+- **Meetings View:** MeetingsView component with loading and error states
+- **Project Structure:** New modules/meetings directory for server and UI code
+- **App Router:** Integrated meetingsRouter into main tRPC appRouter
+
+### 🏗️ Architecture
+- **Modular Meetings System:** Separated meetings logic into its own module for scalability
+- **Type-safe Endpoints:** Fully typed API and database access for meetings
+
+### 📝 Technical
+- **Project Structure:** Updated to reflect new meetings files and folders
+
 ## [1.3.0] - 2025-08-16
 
 ### ✨ Added

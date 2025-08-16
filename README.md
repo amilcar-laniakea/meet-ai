@@ -50,6 +50,15 @@ system.
 - **Agents System:** Complete agents management with database integration
 - **Error Boundaries:** React error boundary for robust error handling
 
+### 📅 **Meetings System**
+
+- **Meetings Module:** Full-featured meetings system with CRUD-ready architecture
+- **Meetings Database Schema:** Dedicated meetings table and status enum
+- **Type-Safe API:** tRPC procedures for meetings data management
+- **Meetings Pages:** `/meetings` and `/meetings/[meetingId]` with suspense, error, and loading states
+- **Pagination & Filtering:** Server-side pagination and search for meetings
+- **Modular Structure:** Separated meetings logic for scalability
+
 ### 🤖 **Agents Management**
 
 - **Agents Module:** Full-featured agents system with CRUD operations
@@ -265,6 +274,37 @@ export const agents = pgTable('agents', {
     .notNull()
     .references(() => user.id),
   instructions: text('instructions').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow()
+});
+
+// Meeting status enum
+export const meetingStatus = pgEnum('meeting_status', [
+  'upcoming',
+  'active',
+  'completed',
+  'processing',
+  'cancelled'
+]);
+
+// Meetings table
+export const meetings = pgTable('meetings', {
+  id: text('id')
+    .primaryKey()
+    .$default(() => nanoid()),
+  name: text('name').notNull(),
+  userId: text('user_id')
+    .notNull()
+    .references(() => user.id),
+  agentId: text('agent_id')
+    .notNull()
+    .references(() => agents.id),
+  status: meetingStatus('status').notNull().default('upcoming'),
+  startedAt: timestamp('started_at'),
+  endedAt: timestamp('ended_at'),
+  transcriptUrl: text('transcript_url'),
+  recordingUrl: text('recording_url'),
+  summary: text('summary'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow()
 });

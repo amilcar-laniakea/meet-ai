@@ -60,6 +60,10 @@ system.
   error, and loading states
 - **Pagination & Filtering:** Server-side pagination and search for meetings
 - **Modular Structure:** Separated meetings logic for scalability
+- **Meetings Data Table:** Professional meetings list with TanStack React Table integration
+- **Meeting Status Tracking:** Color-coded status badges with icons (upcoming, active, completed, cancelled, processing)  
+- **Duration Display:** Human-readable duration formatting using humanize-duration
+- **Agent Integration:** Meetings display associated agent information with avatars
 
 ### 🤖 **Agents Management**
 
@@ -160,6 +164,7 @@ system.
 - **Utils:** nanoid v5 for unique ID generation
 - **Error Handling:** react-error-boundary for robust error boundaries
 - **Notifications:** Sonner for toast notifications and user feedback
+- **Duration Formatting:** humanize-duration for human-readable time display
 
 ## 📦 Installation
 
@@ -400,8 +405,8 @@ src/
 │   │       │   ├── agents-search-filter.tsx  # Search input component
 │   │       │   ├── new-agent-dialog.tsx      # Responsive dialog for agent creation
 │   │       │   ├── columns.tsx               # Data table column definitions
-│   │       │   ├── data-table.tsx            # Reusable data table component
-│   │       │   └── data-pagination.tsx       # Pagination controls component
+│   │       │   ├── data-pagination.tsx       # Pagination controls component
+│   │       │   └── update-agent-dialog.tsx   # Dialog for updating agent details
 │   │       └── views/
 │   │           ├── agent-id-vew.tsx          # Individual agent detail view
 │   │           └── agents-view.tsx           # Main agents view with filtering and navigation
@@ -415,6 +420,7 @@ src/
 │   │       │   ├── meeting-form.tsx          # Meetings create/edit form
 │   │       │   ├── meetings-list-header.tsx  # Meetings list header
 │   │       │   ├── new-meeting-dialog.tsx    # Dialog for creating meetings
+│   │       │   └── columns.tsx               # Data table column definitions for meetings
 │   │       └── meetings-view.tsx             # Main meetings view
 │   ├── auth/
 │   │   └── ui/
@@ -438,7 +444,9 @@ src/
 │   ├── error-state.tsx        # Reusable error state component
 │   ├── loading-state.tsx      # Reusable loading state component
 │   ├── empty-state.tsx        # Reusable empty state component with illustrations
-│   └── generated-avatar.tsx   # DiceBear avatar component
+│   ├── generated-avatar.tsx   # DiceBear avatar component
+│   ├── command-select.tsx     # Generic command select component for forms
+│   └── data-table.tsx         # Reusable data table component with TanStack React Table
 ├── db/
 │   ├── index.ts               # Database connection
 │   └── schema.ts              # Database schema with auth and agents tables
@@ -464,16 +472,6 @@ src/
 ```
 
 ## 🌙 Theme System
-
-The application features a sophisticated theme system:
-
-- **OKLCH color space** for accurate colors
-- **CSS custom properties** for consistency
-- **Automatic theme detection** based on system preferences
-- **Manual theme switching** capability
-
-## 📱 Responsive Design
-
 
 The application features a sophisticated theme system:
 

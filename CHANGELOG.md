@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-08-16
+
+### ✨ Added
+- **Agent Update:** Edit agent details with a responsive dialog and form validation
+- **Agent Delete:** Remove agents with confirmation dialog and safe mutation
+- **Confirmation Dialog:** Custom hook and dialog for confirming destructive actions
+- **Update Agent Dialog:** Modular dialog for updating agent information
+- **tRPC Procedures:** Secure update and remove procedures with user validation
+
+### 🛡️ UX & Safety
+- **Confirmation Workflow:** Prevent accidental deletions with a confirmation modal
+- **Optimistic UI:** Real-time feedback and toast notifications for update/delete
+- **Error Handling:** Robust error and forbidden state handling for agent mutations
+- **Query Invalidation:** Automatic data refresh after update or delete
+
+### 🏗️ Architecture
+- **Custom Hooks:** `useConfirm` for confirmation dialogs
+- **Component Modularity:** Separated update dialog and confirmation logic
+- **Schema Improvements:** Added `agentsUpdateSchema` for type-safe updates
+
+### 📝 Technical
+- **Project Structure:** New files for update dialog and confirmation hook
+- **UI Consistency:** Improved table and form layouts for better UX
+
 ## [1.2.0] - 2025-08-15
 
 ### ✨ Added

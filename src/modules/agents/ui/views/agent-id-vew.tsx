@@ -69,7 +69,7 @@ export const AgentIdView = ({ agentId }: Props) => {
 
     if (!confirmed) return;
 
-    await removeAgent.mutate({ id: agentId });
+    await removeAgent.mutateAsync({ id: agentId });
   };
 
   return (

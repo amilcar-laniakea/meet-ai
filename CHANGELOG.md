@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2025-08-16
+
+### ✨ Added
+- **Meetings Data Table:** Professional meetings list with TanStack React Table integration
+- **Meeting Columns:** Custom column definitions with meeting name, agent info, status, and duration display
+- **Duration Formatting:** Human-readable duration display using `humanize-duration` library
+- **Status Badges:** Color-coded status indicators with icons (upcoming, active, completed, cancelled, processing)
+- **Agent Integration:** Meetings table displays associated agent information with avatars
+- **Generic DataTable Component:** Reusable data table component moved to shared components
+
+### 🛠️ Technical
+- **Database Enhancements:** Enhanced meetings queries with agent joins and duration calculation
+- **Type Safety:** Added `MeetingsGetMany` and `AgentsGetMany` type definitions
+- **Dependencies:** Added `humanize-duration` and `@types/humanize-duration` packages
+
+### 🎨 UI/UX
+- **Professional Table Design:** Consistent styling with agents table design
+- **Status Visualization:** Color-coded badges with appropriate icons for each status
+- **Agent Display:** Integrated agent avatars and names in meetings display
+- **Duration Display:** Human-friendly duration formatting (e.g., "2h", "45m", "30s")
+
 ## [1.5.0] - 2025-08-16
 
 ### ✨ Added

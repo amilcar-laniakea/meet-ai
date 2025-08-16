@@ -52,10 +52,12 @@ system.
 
 ### 📅 **Meetings System**
 
-- **Meetings Module:** Full-featured meetings system with CRUD-ready architecture
+- **Meetings Module:** Full-featured meetings system with CRUD-ready
+  architecture
 - **Meetings Database Schema:** Dedicated meetings table and status enum
 - **Type-Safe API:** tRPC procedures for meetings data management
-- **Meetings Pages:** `/meetings` and `/meetings/[meetingId]` with suspense, error, and loading states
+- **Meetings Pages:** `/meetings` and `/meetings/[meetingId]` with suspense,
+  error, and loading states
 - **Pagination & Filtering:** Server-side pagination and search for meetings
 - **Modular Structure:** Separated meetings logic for scalability
 
@@ -66,24 +68,40 @@ system.
 - **Type-Safe API:** tRPC procedures for agents data management
 - **Loading States:** Comprehensive loading and error handling
 - **Suspense Integration:** React Suspense for optimal user experience
-- **Agent Creation Form:** Complete form system with validation, avatar preview, and responsive design
-- **Protected Routes:** Authentication-required API endpoints with automatic redirects
-- **Toast Notifications:** Real-time feedback for agent operations with success/error messages
-- **Data Table System:** Professional agents listing with TanStack React Table integration
-- **Interactive Table:** Clickable rows, custom columns, and responsive design for agent management
-- **Empty State UI:** Beautiful empty state with custom illustrations when no agents exist
-- **Search & Filtering:** Real-time search functionality with URL state persistence using nuqs
-- **Pagination System:** Complete pagination with server-side data management and URL state
-- **Advanced Query Management:** Server-side filtering, searching, and pagination with optimized database queries
-- **Agent Detail Pages:** Individual agent pages with dynamic routing and comprehensive agent information
-- **Breadcrumb Navigation:** Professional navigation system for easy movement between agents list and detail views
-- **Agent Actions:** Edit and delete functionality accessible through dropdown menus on agent detail pages
-- **User-specific Access:** Enhanced security ensuring users can only access their own agents
- - **Agent Update:** Edit agent details with responsive dialog and validation
- - **Agent Delete:** Remove agents with confirmation dialog and safe mutation
- - **Confirmation Dialog:** Prevent accidental deletions with a custom confirmation modal
- - **Optimistic UI:** Real-time feedback and toast notifications for update/delete
- - **Robust Error Handling:** Error and forbidden state handling for agent mutations
+- **Agent Creation Form:** Complete form system with validation, avatar preview,
+  and responsive design
+- **Protected Routes:** Authentication-required API endpoints with automatic
+  redirects
+- **Toast Notifications:** Real-time feedback for agent operations with
+  success/error messages
+- **Data Table System:** Professional agents listing with TanStack React Table
+  integration
+- **Interactive Table:** Clickable rows, custom columns, and responsive design
+  for agent management
+- **Empty State UI:** Beautiful empty state with custom illustrations when no
+  agents exist
+- **Search & Filtering:** Real-time search functionality with URL state
+  persistence using nuqs
+- **Pagination System:** Complete pagination with server-side data management
+  and URL state
+- **Advanced Query Management:** Server-side filtering, searching, and
+  pagination with optimized database queries
+- **Agent Detail Pages:** Individual agent pages with dynamic routing and
+  comprehensive agent information
+- **Breadcrumb Navigation:** Professional navigation system for easy movement
+  between agents list and detail views
+- **Agent Actions:** Edit and delete functionality accessible through dropdown
+  menus on agent detail pages
+- **User-specific Access:** Enhanced security ensuring users can only access
+  their own agents
+- **Agent Update:** Edit agent details with responsive dialog and validation
+- **Agent Delete:** Remove agents with confirmation dialog and safe mutation
+- **Confirmation Dialog:** Prevent accidental deletions with a custom
+  confirmation modal
+- **Optimistic UI:** Real-time feedback and toast notifications for
+  update/delete
+- **Robust Error Handling:** Error and forbidden state handling for agent
+  mutations
 
 ### 🎨 **Modern UI Components**
 
@@ -103,6 +121,12 @@ system.
 - **Database studio** for visual data management
 - **Authentication Schema** with users, sessions, accounts, and verification
   tables
+
+### 📝 **Meetings Form**
+
+- **Meetings Form:** Create and edit meetings with a modern, responsive form
+- **Agent Selection:** Integrated agent picker and new agent dialog in meetings
+  form
 
 ### 🎯 **Advanced Styling**
 
@@ -381,6 +405,17 @@ src/
 │   │       └── views/
 │   │           ├── agent-id-vew.tsx          # Individual agent detail view
 │   │           └── agents-view.tsx           # Main agents view with filtering and navigation
+│   ├── meetings/
+│   │   ├── schemas.ts                # Zod validation schemas for meetings
+│   │   ├── types.ts                  # TypeScript type definitions for meetings
+│   │   ├── server/
+│   │   │   └── procedures.ts         # tRPC meetings procedures
+│   │   └── ui/
+│   │       ├── components/
+│   │       │   ├── meeting-form.tsx          # Meetings create/edit form
+│   │       │   ├── meetings-list-header.tsx  # Meetings list header
+│   │       │   ├── new-meeting-dialog.tsx    # Dialog for creating meetings
+│   │       └── meetings-view.tsx             # Main meetings view
 │   ├── auth/
 │   │   └── ui/
 │   │       └── views/
@@ -426,7 +461,9 @@ src/
 └── public/
     ├── empty.svg              # Empty state illustration
     └── logo.svg               # Meet.AI brand logo
-```## 🌙 Theme System
+```
+
+## 🌙 Theme System
 
 The application features a sophisticated theme system:
 
@@ -437,7 +474,16 @@ The application features a sophisticated theme system:
 
 ## 📱 Responsive Design
 
-│   │       │   └── update-agent-dialog.tsx   # Dialog for updating agent details
+
+The application features a sophisticated theme system:
+
+- **OKLCH color space** for accurate colors
+- **CSS custom properties** for consistency
+- **Automatic theme detection** based on system preferences
+- **Manual theme switching** capability
+
+## 📱 Responsive Design
+
 - **Mobile-first approach** with Tailwind breakpoints
 - **Flexible layouts** that adapt to different screen sizes
 - **Adaptive Components** that automatically switch between mobile and desktop variants

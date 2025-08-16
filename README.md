@@ -70,6 +70,11 @@ system.
 - **Breadcrumb Navigation:** Professional navigation system for easy movement between agents list and detail views
 - **Agent Actions:** Edit and delete functionality accessible through dropdown menus on agent detail pages
 - **User-specific Access:** Enhanced security ensuring users can only access their own agents
+ - **Agent Update:** Edit agent details with responsive dialog and validation
+ - **Agent Delete:** Remove agents with confirmation dialog and safe mutation
+ - **Confirmation Dialog:** Prevent accidental deletions with a custom confirmation modal
+ - **Optimistic UI:** Real-time feedback and toast notifications for update/delete
+ - **Robust Error Handling:** Error and forbidden state handling for agent mutations
 
 ### 🎨 **Modern UI Components**
 
@@ -374,6 +379,9 @@ src/
 │   ├── init.ts                # tRPC initialization, context, and protected procedures
 │   ├── query-client.ts        # TanStack Query client configuration
 │   └── routers/
+│   │   ├── hooks/
+│   │   │   ├── use-agents-filters.ts # Client-side filter state management
+│   │   │   └── use-confirm.tsx       # Custom hook for confirmation dialogs
 │       └── _app.ts            # Main tRPC router with agents
 └── public/
     ├── empty.svg              # Empty state illustration
@@ -389,6 +397,7 @@ The application features a sophisticated theme system:
 
 ## 📱 Responsive Design
 
+│   │       │   └── update-agent-dialog.tsx   # Dialog for updating agent details
 - **Mobile-first approach** with Tailwind breakpoints
 - **Flexible layouts** that adapt to different screen sizes
 - **Adaptive Components** that automatically switch between mobile and desktop variants

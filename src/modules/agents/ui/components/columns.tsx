@@ -22,9 +22,9 @@ export const columns: ColumnDef<AgentGetOne>[] = [
           <span className="font-semibold capitalize">{row.original.name}</span>
         </div>
         <div className="flex items-center gap-x-2">
-          <div className="flex items-center gap-x-1.5">
+          <div className="flex items-center gap-x-1">
             <CornerDownRightIcon className="size-3 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground max-w-[200px] truncate capitalize">
+            <span className="text-sm text-muted-foreground max-w-[150px] truncate capitalize">
               {row.original.instructions}
             </span>
           </div>
@@ -45,9 +45,5 @@ export const columns: ColumnDef<AgentGetOne>[] = [
         {row.original.meetingCount === 1 ? 'Meeting' : 'Meetings'}
       </Badge>
     )
-  },
-  {
-    accessorKey: 'amount',
-    header: 'Amount'
   }
 ];

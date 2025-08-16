@@ -42,6 +42,33 @@ export const AgentForm = ({
       onSuccess: async e => {
         toast.success(`Agent ${e.name} created successfully!`, {
           position: 'top-right',
+          richColors: true,
+          closeButton: true
+        });
+
+        await queryClient.invalidateQueries(
+          trpc.agents.getMany.queryOptions({})
+        );
+
+        // TODO: invalidate free tier usage
+        onSuccess?.();
+      },
+      onError: error => {
+        toast.error(error.message, {
+          position: 'top-right',
+          richColors: true,
+          closeButton: true
+        });
+      }
+    })
+  );
+
+  const updateAgent = useMutation(
+    trpc.agents.update.mutationOptions({
+      onSuccess: async e => {
+        toast.success(`Agent ${e.name} updated successfully!`, {
+          position: 'top-right',
+          richColors: true,
           closeButton: true
         });
         await queryClient.invalidateQueries(
@@ -58,8 +85,10 @@ export const AgentForm = ({
       onError: error => {
         toast.error(error.message, {
           position: 'top-right',
+          richColors: true,
           closeButton: true
         });
+        //TODO: Check if error code is FORBIDDEN, redirect to /upgrade
       }
     })
   );
@@ -73,14 +102,11 @@ export const AgentForm = ({
   });
 
   const isEdit = !!initialValues?.id;
-  const isPending = createAgent.isPending;
+  const isPending = createAgent.isPending || updateAgent.isPending;
 
   const onSubmit = (values: z.infer<typeof agentsInsertSchema>) => {
-    if (isEdit) {
-      console.log('Edit functionality not implemented yet');
-    } else {
-      createAgent.mutate(values);
-    }
+    if (isEdit) updateAgent.mutate({ ...values, id: initialValues.id });
+    else createAgent.mutate(values);
   };
 
   return (

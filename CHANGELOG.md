@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2025-08-16
+
+### ✨ Added
+- **Meetings Form:** Added `MeetingForm` component for creating and editing meetings
+- **Meetings UI Components:** Added `MeetingsListHeader` and `NewAMeetingDialog` for meetings management
+- **CommandSelect Component:** New generic select component for forms
+- **Meetings API:** tRPC create and update procedures for meetings
+
+### 🎨 UI/UX
+- **Responsive Meetings Form:** Modern, accessible form with agent selection and new agent dialog
+- **Dialog Integration:** Responsive dialog for creating meetings, with success/error toasts
+
+### 📝 Technical
+- **Project Structure:** Added new files for meetings form and related UI components
+- **Schema:** Added Zod schemas for meetings insert/update
+
 ## [1.4.0] - 2025-08-16
 
 ### ✨ Added

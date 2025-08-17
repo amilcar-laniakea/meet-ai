@@ -99,7 +99,7 @@ export const columns: ColumnDef<MeetingsGetMany[number]>[] = [
     header: 'Duration',
     cell: ({ row }) => (
       <Badge
-        className="capitalize [&>svg]:size-5 flex items-center gap-y-2"
+        className="capitalize [&>svg]:size-5 flex items-center gap-x-2"
         variant="outline"
       >
         <ClockFadingIcon className="text-blue-700" />

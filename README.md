@@ -60,10 +60,39 @@ system.
   error, and loading states
 - **Pagination & Filtering:** Server-side pagination and search for meetings
 - **Modular Structure:** Separated meetings logic for scalability
-- **Meetings Data Table:** Professional meetings list with TanStack React Table integration
-- **Meeting Status Tracking:** Color-coded status badges with icons (upcoming, active, completed, cancelled, processing)  
-- **Duration Display:** Human-readable duration formatting using humanize-duration
-- **Agent Integration:** Meetings display associated agent information with avatars
+- **Meetings Data Table:** Professional meetings list with TanStack React Table
+  integration
+- **Meeting Status Tracking:** Color-coded status badges with icons (upcoming,
+  active, completed, cancelled, processing)
+- **Duration Display:** Human-readable duration formatting using
+  humanize-duration
+- **Agent Integration:** Meetings display associated agent information with
+  avatars
+
+### 📋 **Meetings Management**
+
+- **Meeting Creation:** Professional meeting creation forms with agent
+  assignment
+- **Meetings Data Table:** Advanced table implementation with TanStack React
+  Table
+- **Meeting Status Tracking:** Visual status indicators (upcoming, active,
+  completed, processing, cancelled)
+- **Duration Display:** Human-readable meeting duration formatting
+- **Agent Integration:** Meetings linked to specific AI agents with avatar
+  display
+- **Advanced Filtering:** Comprehensive filter system with search, status, and
+  agent filters
+- **Real-time Search:** Live search functionality for meeting names and
+  descriptions
+- **Status Filtering:** Filter meetings by current status with dropdown
+  selection
+- **Agent Filtering:** Filter meetings by specific agents with "All Agents"
+  option
+- **URL State Persistence:** Filter states persist in URL parameters for
+  bookmarking
+- **Responsive Design:** Mobile-optimized filter interface with horizontal
+  scroll navigation
+- **Clear Filters:** One-click option to reset all applied filters
 
 ### 🤖 **Agents Management**
 
@@ -413,15 +442,22 @@ src/
 │   ├── meetings/
 │   │   ├── schemas.ts                # Zod validation schemas for meetings
 │   │   ├── types.ts                  # TypeScript type definitions for meetings
+│   │   ├── hooks/
+│   │   │   └── use-meetings-filters.ts # Client-side meetings filter state management
+│   │   ├── params.ts                 # Server-side params parsing for meetings
 │   │   ├── server/
 │   │   │   └── procedures.ts         # tRPC meetings procedures
 │   │   └── ui/
 │   │       ├── components/
-│   │       │   ├── meeting-form.tsx          # Meetings create/edit form
-│   │       │   ├── meetings-list-header.tsx  # Meetings list header
+│   │       │   ├── agent-id-filter.tsx       # Agent filter dropdown for meetings
+│   │       │   ├── columns.tsx               # Meeting table column definitions
+│   │       │   ├── meeting-form.tsx          # Meeting create/edit form
+│   │       │   ├── meetings-list-header.tsx  # Meetings list header with filters
+│   │       │   ├── meetings-search-filter.tsx # Search input for meetings
 │   │       │   ├── new-meeting-dialog.tsx    # Dialog for creating meetings
-│   │       │   └── columns.tsx               # Data table column definitions for meetings
-│   │       └── meetings-view.tsx             # Main meetings view
+│   │       │   └── status-filter.tsx         # Status filter dropdown for meetings
+│   │       └── views/
+│   │           └── meetings-view.tsx         # Main meetings list view
 │   ├── auth/
 │   │   └── ui/
 │   │       └── views/

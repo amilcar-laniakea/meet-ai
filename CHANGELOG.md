@@ -6,7 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-// ...existing code...
+## [1.8.0] - 2025-08-16
+
+### ✨ Added
+
+- **Meeting Detail Page:** Dynamic meeting detail page with comprehensive meeting information display
+- **Meeting Detail View:** New `meeting-id-view.tsx` component for displaying meeting details with agent, status, and duration
+- **Meeting View Header:** New `meeting-id-view-header.tsx` for breadcrumb navigation and meeting actions
+- **Update Meeting Dialog:** New `update-meeting-dialog.tsx` for editing meetings from detail page
+- **Meeting Actions:** Edit and delete functionality accessible through dropdown menu on meeting detail page
+- **Meeting Remove API:** New `remove` procedure for safely deleting meetings with user validation
+- **Shared Confirmation Hook:** Global `use-confirm.tsx` hook for preventing accidental deletions across the app
+- **Enhanced Authentication:** Added authentication guards to agent detail pages for security
+
+### 🎨 UI/UX
+
+- **Consistent Detail Layout:** Professional layout matching agent detail pages with proper spacing
+- **Breadcrumb Navigation:** Seamless navigation between meetings list and individual meeting details
+- **Action Menu:** Dropdown menu for meeting actions (edit, delete) with proper icons
+- **Confirmation Dialog:** Prevent accidental deletions with responsive confirmation modal
+- **Status & Duration Display:** Clear display of meeting information with agent details
+- **Responsive Design:** Mobile-optimized layout with proper touch targets
+
+### 🛠️ Technical
+
+- **Dynamic Routing:** Enhanced `/meetings/[meetingId]` route with authentication and error handling
+- **Component Architecture:** Modular components for meeting detail UI with proper separation of concerns
+- **Enhanced Database Queries:** Meeting queries now include agent joins and duration calculations
+- **Type Safety:** Strong TypeScript types for meeting detail data and mutations
+- **Error Handling:** Robust error and forbidden state handling for meeting detail operations
+- **Query Optimization:** Proper prefetching and cache invalidation for optimal performance
+- **Shared Hook Migration:** Moved `use-confirm` from agents module to shared hooks for reusability
 
 ## [1.7.0] - 2025-08-16
 

@@ -6,6 +6,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0] - 2025-08-17
+
+### ✨ Added
+
+- **Video Call Integration:** Full video calling functionality with Stream.io Video SDK integration
+- **Call Provider Component:** Authentication and user management for video calls with auto-generated avatars
+- **Call Connection System:** Robust connection handling with Stream Video Client initialization and token generation
+- **Call Lobby Interface:** Pre-call setup screen with camera/microphone controls and permission handling
+- **Active Call UI:** Professional call interface with speaker layout, call controls, and meeting branding
+- **Call State Management:** Complete call lifecycle management from lobby through active call to ending
+- **Stream Video Dependencies:** Added @stream-io/video-react-sdk and related video calling libraries
+
+### 🎨 UI/UX
+
+- **Professional Call Interface:** Branded call experience with logo and meeting name display
+- **Media Device Controls:** Toggle buttons for camera and microphone in lobby and during calls
+- **Permission Handling:** User-friendly prompts for browser media permissions
+- **Call End Experience:** Graceful call ending with summary notification and navigation back to meetings
+- **Responsive Video Layout:** Adaptive speaker layout that works across different screen sizes
+- **Loading States:** Smooth loading indicators during connection and client initialization
+
+### 🛠️ Technical
+
+- **Stream.io Integration:** Complete integration with Stream Video API for real-time video calling
+- **Token Authentication:** Secure token generation for Stream Video service authentication
+- **Client State Management:** Proper cleanup and disconnection handling for video clients
+- **Call State Hooks:** Custom React hooks for managing call states and media device permissions
+- **Environment Configuration:** Stream Video API key configuration for video service connectivity
+- **CSS Styling Import:** Integrated Stream Video SDK styles for consistent video component appearance
+
 ## [1.9.0] - 2025-08-17
 
 ### ✨ Added

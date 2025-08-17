@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2025-08-17
+
+### ✨ Added
+
+- **Meeting Page Variants:** Additional improvements and refactors to the meeting detail page and related UI components
+- **Enhanced Meeting Actions:** Improved edit/delete flows, confirmation dialogs, and error handling for meeting operations
+- **UI/UX Polish:** Minor UI refinements, accessibility improvements, and responsive tweaks for meeting-related components
+- **Codebase Cleanup:** Refactored hooks and component imports for better maintainability
+
+### 🛠️ Technical
+
+- **Component Updates:** Updated meeting form, columns, and server procedures for improved type safety and user experience
+- **Shared Hooks:** Further improvements to shared confirmation dialog hook and its usage across modules
+
+### 🐞 Fixed
+
+- **Bug Fixes:** Addressed minor bugs in meeting detail view, agent integration, and status display
+
+
 ## [1.8.0] - 2025-08-16
 
 ### ✨ Added

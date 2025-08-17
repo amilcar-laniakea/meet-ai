@@ -10,6 +10,7 @@ import {
   useMutation
 } from '@tanstack/react-query';
 
+import { useConfirm } from '@/hooks/use-confirm';
 import { useTRPC } from '@/trpc/client';
 import LoadingState from '@/components/loading-state';
 import ErrorState from '@/components/error-state';
@@ -17,7 +18,7 @@ import { GeneratedAvatar } from '@/components/generated-avatar';
 import { Badge } from '@/components/ui/badge';
 
 import { AgentIdViewHeader } from '../components/agent-view-header';
-import { useConfirm } from '../../hooks/use-confirm';
+
 import { UpdateAgentDialog } from '../components/update-agent-dialog';
 
 interface Props {

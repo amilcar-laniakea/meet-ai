@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "dev:webhook": "for /f \"tokens=2 delims==\" %i in ('findstr NGROK_URL .env') do ngrok http --url=%i 3000"
   },
   "dependencies": {
     "@dicebear/collection": "^9.2.4",
@@ -44,6 +45,7 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@stream-io/node-sdk": "^0.5.1",
+    "@stream-io/openai-realtime-api": "^0.3.3",
     "@stream-io/video-react-sdk": "^1.19.8",
     "@tanstack/react-query": "^5.76.1",
     "@tanstack/react-table": "^8.21.3",

@@ -6,6 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.0] - 2025-08-18
+
+### ✨ Added
+
+- **Background Jobs Integration:** Full Inngest integration for reliable background job processing and event-driven workflows
+- **Inngest Client Setup:** Comprehensive Inngest client configuration with proper environment variable management
+- **Background Functions:** Automated background processing functions for meeting lifecycle and post-call operations
+- **Inngest API Endpoint:** Dedicated API route for handling Inngest background job events and webhooks
+- **Agent Kit Integration:** Added @inngest/agent-kit for advanced agent orchestration capabilities
+- **JSONL Processing:** Support for JSONL parsing and processing for structured data handling
+- **Enhanced Webhook Integration:** Improved webhook handling with background job triggering capabilities
+
+### 🎨 UI/UX
+
+- **Improved Development Workflow:** Enhanced development webhook script with better error handling and Node.js implementation
+
+### 🛠️ Technical
+
+- **Inngest Framework:** Complete integration with Inngest for background job management and event processing
+- **Event-Driven Architecture:** Enhanced system architecture with proper event handling and background processing
+- **Job Queue Management:** Reliable job processing with automatic retries and error handling
+- **Meeting Status Enhancement:** Extended meeting types and status management for better tracking
+- **Development Tools:** Improved webhook development tooling with Node.js-based ngrok script
+- **Package Dependencies:** Added inngest, @inngest/agent-kit, and jsonl-parse-stringify dependencies
+
+### 🐞 Fixed
+
+- **Development Script:** Fixed ngrok webhook development script from shell command to proper Node.js implementation
+
 ## [1.11.0] - 2025-08-17
 
 ### ✨ Added

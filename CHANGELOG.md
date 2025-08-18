@@ -6,6 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.0] - 2025-08-18
+
+### ✨ Added
+
+- **Completed Meeting State:** Comprehensive completed meeting view with tabbed interface for summary, transcript, recording, and AI chat
+- **Meeting Summary Display:** Rich markdown rendering of meeting summaries with custom styling and formatting
+- **Meeting Recording Playback:** Built-in video player for meeting recordings with full controls
+- **Meeting Transcript View:** Dedicated tab for viewing meeting transcripts and conversation details  
+- **Ask AI Tab:** Interactive AI chat interface for asking questions about completed meetings
+- **Duration Formatting:** Human-readable duration display using humanize-duration library
+- **Markdown Support:** Added react-markdown dependency for rich text rendering in meeting summaries
+
+### 🎨 UI/UX
+
+- **Tabbed Interface:** Clean tabbed navigation for different meeting content types (Summary, Transcript, Recording, Ask AI)
+- **Custom Tab Styling:** Professional tab design with active state indicators and hover effects
+- **Responsive Layout:** Mobile-optimized layout with horizontal scrolling for tab navigation
+- **Rich Text Rendering:** Properly styled markdown content with headings, lists, code blocks, and quotes
+- **Agent Integration Display:** Clear agent information with avatar and meeting date display
+- **Duration Badge:** Visual duration indicator with clock icon and formatted time display
+
+### 🛠️ Technical
+
+- **React Markdown Integration:** Complete integration with react-markdown for content rendering
+- **Utility Functions:** New formatDuration utility function for consistent time formatting
+- **Component Architecture:** Modular completed state component with proper TypeScript interfaces
+- **Meeting Data Integration:** Full integration with existing meeting data structure and types
+- **Icon Integration:** Comprehensive use of Lucide React icons for visual enhancement
+
 ## [1.12.0] - 2025-08-18
 
 ### ✨ Added

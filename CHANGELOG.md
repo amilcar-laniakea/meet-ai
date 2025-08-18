@@ -6,6 +6,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0] - 2025-08-17
+
+### ✨ Added
+
+- **Agent Connection Integration:** Full OpenAI Realtime API integration for connecting AI agents to video calls
+- **Webhook API Endpoint:** Comprehensive webhook handler for Stream.io video call events and agent lifecycle management
+- **OpenAI Realtime API:** Integration with @stream-io/openai-realtime-api for real-time AI agent conversations
+- **Agent Session Management:** Automatic agent connection when calls start with proper instruction loading
+- **Call Event Handling:** Robust webhook processing for call session started and participant left events
+- **Agent Auto-Join:** AI agents automatically join calls and receive meeting context and instructions
+- **Development Webhook Support:** Added ngrok webhook development script for local testing
+
+### 🎨 UI/UX
+
+- **Call Error Handling:** Improved error states for completed meetings with clear messaging
+- **Agent Avatar Generation:** Consistent avatar generation for AI agents in video calls
+- **Call Status Updates:** Real-time meeting status updates (active, completed) based on call events
+
+### 🛠️ Technical
+
+- **Stream Video Call Creation:** Enhanced call creation with recording, transcription, and custom meeting metadata
+- **Agent User Management:** Automatic Stream user creation and management for AI agents
+- **Webhook Signature Verification:** Secure webhook processing with proper signature validation
+- **Database Integration:** Meeting status tracking and agent association through database updates
+- **Call Lifecycle Management:** Proper call ending and cleanup when participants leave
+- **Environment Configuration:** OpenAI API key integration for agent conversations
+- **Code Cleanup:** Removed TODO comments and improved meeting creation procedures
+
+### 🐞 Fixed
+
+- **Typo Correction:** Fixed "You can bo longer join" to "You can no longer join" in call view error message
+
 ## [1.10.0] - 2025-08-17
 
 ### ✨ Added

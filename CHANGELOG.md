@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.14.0] - 2025-09-01
+
+### ✨ Added
+
+- **Meeting Transcript View:** Interactive transcript view with search functionality and timestamp markers
+- **AI Chat Integration:** Real-time chat functionality with Stream Chat SDK for querying meeting content
+- **Chat Provider Components:** Authentication-aware chat provider with Stream Chat client management
+- **Chat UI System:** Complete chat interface with message list, input, and thread support
+- **Transcript Search:** Full-text search within meeting transcripts with highlighted results
+- **Stream Chat Integration:** Backend integration with Stream Chat for managing chat channels and users
+- **OpenAI Integration:** Enhanced webhook handling for AI agent responses in chat
+
+### 🎨 UI/UX
+
+- **Searchable Transcripts:** User-friendly transcript search with highlighted matches and timestamps
+- **Chat Interface:** Professional chat experience with threading and real-time updates
+- **Avatar Integration:** Consistent avatar display in transcript and chat with proper fallbacks
+- **Message Styling:** Clean message layout with proper spacing and visual hierarchy
+- **Search Input:** Accessible search input with clear icon indicator
+- **Loading States:** Smooth loading transitions for chat and transcript data
+
+### 🛠️ Technical
+
+- **Stream Chat SDK:** Complete integration with Stream Chat SDK for real-time messaging
+- **Token Generation:** Secure chat token generation and user management
+- **Component Architecture:** Modular chat and transcript components with proper TypeScript types
+- **Real-time Updates:** WebSocket-based real-time updates for chat messages
+- **Search Implementation:** Efficient client-side transcript search with proper filtering
+- **Time Formatting:** Consistent timestamp formatting across transcript entries
+- **Dependencies:** Added stream-chat, stream-chat-react, and react-highlight-words packages
+
 ## [1.13.0] - 2025-08-18
 
 ### ✨ Added

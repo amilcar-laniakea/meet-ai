@@ -6,6 +6,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.15.1] - 2025-09-01
+
+### 🐛 Fixed
+
+- **Upcoming Meetings:** Fixed state management in upcoming meetings view to properly handle loading and error states
+- **Meeting Scheduling:** Resolved edge cases in meeting scheduling logic to prevent invalid time selections
+- **UI Consistency:** Fixed inconsistent loading states and error handling across meeting views
+- **Timezone Handling:** Improved timezone handling for meeting schedules to prevent display discrepancies
+- **Error Messages:** Enhanced error message clarity in meeting creation and update flows
+- **Form Validation:** Fixed validation issues in meeting form components
+- **State Updates:** Resolved stale state issues in meeting status updates
+
+### 🎨 UI Improvements
+
+- **Loading States:** More consistent loading state indicators across meeting components
+- **Error Display:** Improved error message positioning and styling
+- **Form Feedback:** Enhanced visual feedback during form validation
+- **Button States:** Better handling of disabled states during loading
+
+### 🔧 Technical
+
+- **State Management:** Optimized meeting state management to prevent unnecessary re-renders
+- **Error Handling:** Improved error boundary implementation in meeting components
+- **Type Safety:** Enhanced TypeScript types for better error prevention
+- **Performance:** Reduced unnecessary re-renders in meeting components
+
 ## [1.15.0] - 2025-09-01
 
 ### ✨ Added

@@ -15,7 +15,8 @@ import {
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  useSidebar
 } from '@/components/ui/sidebar';
 import { Separator } from '@/components/ui/separator';
 
@@ -30,6 +31,7 @@ const firstSection = [
 const secondSection = [{ icon: StarIcon, label: 'Upgrade', href: '/upgrade' }];
 
 export const DashboardSidebar = () => {
+  const { toggleSidebar, isMobile } = useSidebar();
   const pathname = usePathname();
 
   return (
@@ -56,6 +58,7 @@ export const DashboardSidebar = () => {
               {firstSection.map(item => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
+                    onClick={() => isMobile && toggleSidebar()}
                     asChild
                     className={cn(
                       'h-10 hover:bg-linear-to-r/oklch border border-transparent hover:border-[#5D6B68]/10 from-sidebar-accent from-5% via-30% via-sidebar/10 to-sidebar/50',
@@ -69,7 +72,7 @@ export const DashboardSidebar = () => {
                     }
                   >
                     <Link href={item.href}>
-                      <item.icon className="size-5" />
+                      <item.icon className="size-5" fill="currentColor" />
                       <span className="text-sm font-medium tracking-tight">
                         {item.label}
                       </span>
@@ -89,6 +92,7 @@ export const DashboardSidebar = () => {
               {secondSection.map(item => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
+                    onClick={() => isMobile && toggleSidebar()}
                     asChild
                     className={cn(
                       'h-10 hover:bg-linear-to-r/oklch border border-transparent hover:border-[#5D6B68]/10 from-sidebar-accent from-5% via-30% via-sidebar/10 to-sidebar/50',
@@ -102,7 +106,7 @@ export const DashboardSidebar = () => {
                     }
                   >
                     <Link href={item.href}>
-                      <item.icon className="size-5" />
+                      <item.icon className="size-5" fill="currentColor" />
                       <span className="text-sm font-medium tracking-tight">
                         {item.label}
                       </span>

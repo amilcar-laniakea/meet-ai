@@ -29,7 +29,7 @@ const Upgrade = async () => {
   void queryClient.prefetchQuery(trpc.premium.getProducts.queryOptions());
 
   return (
-    <>
+    <div className="pt-[52px] pb-[42px]">
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Suspense fallback={<UpgradeViewLoading />}>
           <ErrorBoundary fallback={<UpgradeViewError />}>
@@ -37,7 +37,7 @@ const Upgrade = async () => {
           </ErrorBoundary>
         </Suspense>
       </HydrationBoundary>
-    </>
+    </div>
   );
 };
 export default Upgrade;

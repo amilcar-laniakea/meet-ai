@@ -36,7 +36,7 @@ const Agents = async ({ searchParams }: Props) => {
   );
 
   return (
-    <>
+    <div className="pt-[52px] pb-[42px]">
       <AgentsListHeader />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Suspense fallback={<AgentsViewLoading />}>
@@ -45,7 +45,7 @@ const Agents = async ({ searchParams }: Props) => {
           </ErrorBoundary>
         </Suspense>
       </HydrationBoundary>
-    </>
+    </div>
   );
 };
 export default Agents;

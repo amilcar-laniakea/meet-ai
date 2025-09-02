@@ -32,16 +32,16 @@ const MeetingIdPage = async ({ params }: Props) => {
     trpc.meetings.getOne.queryOptions({ id: meetingId })
   );
 
-  // TODO: Prefetch meetings. transcript
-
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <Suspense fallback={<MeetingsIdViewLoading />}>
-        <ErrorBoundary fallback={<MeetingsIdViewError />}>
-          <MeetingIdView meetingId={meetingId} />
-        </ErrorBoundary>
-      </Suspense>
-    </HydrationBoundary>
+    <div className="pt-[52px] pb-[42px]">
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Suspense fallback={<MeetingsIdViewLoading />}>
+          <ErrorBoundary fallback={<MeetingsIdViewError />}>
+            <MeetingIdView meetingId={meetingId} />
+          </ErrorBoundary>
+        </Suspense>
+      </HydrationBoundary>
+    </div>
   );
 };
 

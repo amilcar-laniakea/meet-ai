@@ -6,6 +6,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.16.0] - 2025-09-02
+
+### 💳 Enhanced Payments
+
+- **Multiple Payment Providers:** Added support for multiple payment gateways for premium subscriptions
+- **Payment Method Management:** Users can now add, update, and remove payment methods from their dashboard
+- **Subscription Upgrades/Downgrades:** Seamless upgrade and downgrade flow for premium plans
+- **Invoice History:** Users can view and download their invoice/payment history
+- **Payment Status Feedback:** Improved real-time feedback for payment processing and errors
+- **Trial to Paid Conversion:** Streamlined conversion from free trial to paid subscription
+- **Premium Access Control:** Enhanced backend checks for premium feature access
+
+### 🎨 UI/UX
+
+- **Payment Management UI:** New dashboard section for managing payment methods and viewing invoices
+- **Improved Upgrade Flow:** Smoother and clearer upgrade experience with better error handling
+- **Visual Feedback:** Clearer status indicators for payment and subscription changes
+
+### 🛠️ Technical
+
+- **Payment API Integration:** Refactored payment logic for extensibility and reliability
+- **TypeScript Improvements:** Improved types for payment and subscription data
+- **Error Handling:** More robust error handling for payment-related actions
+
 ## [1.15.1] - 2025-09-01
 
 ### 🐛 Fixed

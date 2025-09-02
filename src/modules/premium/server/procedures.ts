@@ -39,8 +39,12 @@ export const premiumRouter = createTRPCRouter({
 
     const subscription = customer.activeSubscriptions[0];
 
-    if (subscription) {
-      return null;
+    let product = null;
+
+    if (subscription.productId) {
+      product = await polarClient.products.get({
+        id: subscription.productId
+      });
     }
 
     const [userMeetings] = await db
@@ -54,6 +58,7 @@ export const premiumRouter = createTRPCRouter({
       .where(eq(agents.userId, ctx.auth.user.id));
 
     return {
+      product: product,
       meetingCount: userMeetings.count,
       agentCount: userAgents.count
     };

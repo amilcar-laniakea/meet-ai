@@ -116,6 +116,12 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.w-fill-available {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

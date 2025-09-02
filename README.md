@@ -1,12 +1,53 @@
 # Meet AI
 
-A modern, full-stack web application built with Next.js 15, featuring a
-comprehensive UI component library, database integration, and advanced styling
-system.
+A modern, full-stack AI-powered meeting platform built with Next.js 15,
+featuring real-time video calls, AI meeting assistants, transcript analysis, and
+a comprehensive premium subscription system.
 
 ## 🚀 Features
 
-### 🔐 **Authentication System**
+### � **Video Conferencing**
+
+- **Real-time Video Calls:** Integrated Stream.io Video SDK for high-quality
+  video meetings
+- **Call Lobby Interface:** Pre-call setup with camera/microphone controls
+- **Professional Call UI:** Dynamic speaker layout with call controls and
+  branding
+- **Recording Support:** Built-in meeting recording capabilities
+- **Real-time Transcription:** Automatic meeting transcription for later
+  reference
+- **Custom Branding:** Professional meeting interface with logo and meeting info
+
+### 🤖 **AI Meeting Assistant**
+
+- **AI Agent Integration:** OpenAI-powered meeting assistants that join your
+  calls
+- **Real-time AI Responses:** Intelligent responses during meetings
+- **Custom Instructions:** Configurable AI behavior per meeting
+- **Automatic Connection:** AI agents automatically join calls with context
+- **Meeting Analysis:** AI-powered meeting summaries and insights
+- **Chat Interface:** Interactive AI chat for meeting-related questions
+
+### 📝 **Meeting Transcripts**
+
+- **Searchable Transcripts:** Full-text search within meeting transcripts
+- **Timestamp Navigation:** Jump to specific moments in recordings
+- **Highlight Support:** Search result highlighting in transcripts
+- **Real-time Updates:** Live transcript updates during meetings
+- **Export Options:** Download transcripts in various formats
+- **Thread View:** Organized conversation view with speaker tracking
+
+### 💳 **Premium Features & Payments**
+
+- **Subscription Plans:** Flexible premium plans with different feature sets
+- **Multiple Payment Providers:** Support for various payment gateways
+- **Payment Management:** Add, update, and remove payment methods
+- **Subscription Controls:** Easy upgrade/downgrade between plans
+- **Invoice History:** View and download payment history
+- **Trial System:** Free trial with smooth conversion to paid plans
+- **Premium Access:** Granular control of premium features
+
+### �🔐 **Authentication System**
 
 - **Professional Authentication UI** with modern, polished design
 - **Email/Password Authentication** with secure validation and password
@@ -61,28 +102,45 @@ system.
 
 ### � **Meetings System**
 
-- **Meetings Module:** Full-featured meetings system with CRUD-ready architecture
+- **Meetings Module:** Full-featured meetings system with CRUD-ready
+  architecture
 - **Meetings Database Schema:** Dedicated meetings table and status enum
 - **Type-Safe API:** tRPC procedures for meetings data management
-- **Meetings Pages:** `/meetings` and `/meetings/[meetingId]` with suspense, error, and loading states
-- **Meeting Detail Page:** Individual meeting pages with dynamic routing and comprehensive information
-- **Meeting Actions:** Edit and delete functionality accessible through dropdown menus on detail pages
+- **Meetings Pages:** `/meetings` and `/meetings/[meetingId]` with suspense,
+  error, and loading states
+- **Meeting Detail Page:** Individual meeting pages with dynamic routing and
+  comprehensive information
+- **Meeting Actions:** Edit and delete functionality accessible through dropdown
+  menus on detail pages
 - **Pagination & Filtering:** Server-side pagination and search for meetings
 - **Modular Structure:** Separated meetings logic for scalability
-- **Meetings Data Table:** Professional meetings list with TanStack React Table integration
-- **Meeting Status Tracking:** Color-coded status badges with icons (upcoming, active, completed, cancelled, processing)
-- **Duration Display:** Human-readable duration formatting using humanize-duration
-- **Agent Integration:** Meetings display associated agent information with avatars
-- **Meeting Creation:** Professional meeting creation forms with agent assignment
-- **Advanced Filtering:** Comprehensive filter system with search, status, and agent filters
-- **Real-time Search:** Live search functionality for meeting names and descriptions
-- **Status Filtering:** Filter meetings by current status with dropdown selection
-- **Agent Filtering:** Filter meetings by specific agents with "All Agents" option
-- **URL State Persistence:** Filter states persist in URL parameters for bookmarking
-- **Responsive Design:** Mobile-optimized filter interface with horizontal scroll navigation
+- **Meetings Data Table:** Professional meetings list with TanStack React Table
+  integration
+- **Meeting Status Tracking:** Color-coded status badges with icons (upcoming,
+  active, completed, cancelled, processing)
+- **Duration Display:** Human-readable duration formatting using
+  humanize-duration
+- **Agent Integration:** Meetings display associated agent information with
+  avatars
+- **Meeting Creation:** Professional meeting creation forms with agent
+  assignment
+- **Advanced Filtering:** Comprehensive filter system with search, status, and
+  agent filters
+- **Real-time Search:** Live search functionality for meeting names and
+  descriptions
+- **Status Filtering:** Filter meetings by current status with dropdown
+  selection
+- **Agent Filtering:** Filter meetings by specific agents with "All Agents"
+  option
+- **URL State Persistence:** Filter states persist in URL parameters for
+  bookmarking
+- **Responsive Design:** Mobile-optimized filter interface with horizontal
+  scroll navigation
 - **Clear Filters:** One-click option to reset all applied filters
-- **Confirmation Dialogs:** Prevent accidental deletions with responsive confirmation modals
-- **Breadcrumb Navigation:** Professional navigation system for easy movement between meetings list and detail views
+- **Confirmation Dialogs:** Prevent accidental deletions with responsive
+  confirmation modals
+- **Breadcrumb Navigation:** Professional navigation system for easy movement
+  between meetings list and detail views
 
 ### 🤖 **Agents Management**
 
@@ -170,6 +228,9 @@ system.
 ## 🛠️ Tech Stack
 
 - **Frontend:** Next.js 15.4.6, React 19.1.0, TypeScript 5
+- **Video Calls:** Stream.io Video SDK for real-time video conferencing
+- **AI Integration:** OpenAI API, Stream.io OpenAI Realtime API
+- **Chat System:** Stream Chat SDK for real-time messaging
 - **Authentication:** Better-Auth v1.2.8 with WebAuthn support
 - **API:** tRPC v11 with TanStack Query v5 for type-safe data fetching
 - **Data Tables:** TanStack React Table v8 for advanced table functionality
@@ -180,12 +241,57 @@ system.
 - **Development:** ESLint, Prettier, Turbopack
 - **Forms:** React Hook Form, Zod validation
 - **Charts:** Recharts for data visualization
-- **Utils:** nanoid v5 for unique ID generation
+- **Payments:** Polar for subscription management
+- **Background Jobs:** Inngest for reliable job processing
+- **Utils:** nanoid v5, humanize-duration
 - **Error Handling:** react-error-boundary for robust error boundaries
-- **Notifications:** Sonner for toast notifications and user feedback
-- **Duration Formatting:** humanize-duration for human-readable time display
+- **Notifications:** Sonner for toast notifications
+- **Markdown:** React Markdown for rich text rendering
+- **Search:** React Highlight Words for transcript search
 
-## 📦 Installation
+## � Project Structure
+
+```
+meet-ai/
+├── src/
+│   ├── app/                      # Next.js app router pages and layouts
+│   │   ├── (auth)/              # Authentication-related routes
+│   │   │   ├── sign-in/
+│   │   │   └── sign-up/
+│   │   ├── (dashboard)/         # Protected dashboard routes
+│   │   │   ├── agents/
+│   │   │   ├── meetings/
+│   │   │   └── upgrade/
+│   │   ├── api/                 # API routes
+│   │   └── layout.tsx           # Root layout
+│   ├── components/
+│   │   └── ui/                  # Shared UI components
+│   ├── db/                      # Database configuration
+│   │   ├── index.ts            # Database client
+│   │   └── schema.ts           # Drizzle schema
+│   ├── hooks/                   # Shared React hooks
+│   ├── inngest/                 # Background job handlers
+│   ├── lib/                     # Utility libraries
+│   │   ├── auth.ts             # Authentication setup
+│   │   ├── polar.ts            # Payment integration
+│   │   └── stream-chat.ts      # Chat integration
+│   ├── modules/                 # Feature modules
+│   │   ├── agents/             # Agents feature
+│   │   │   ├── server/         # Backend logic
+│   │   │   └── ui/             # Frontend components
+│   │   ├── dashboard/          # Dashboard features
+│   │   ├── meetings/           # Meetings feature
+│   │   └── premium/            # Premium features
+│   └── trpc/                   # tRPC API setup
+├── public/                      # Static assets
+├── .env                        # Environment variables
+├── components.json             # shadcn/ui configuration
+├── drizzle.config.ts          # Database configuration
+├── next.config.ts             # Next.js configuration
+└── package.json               # Project dependencies
+```
+
+## �📦 Installation
 
 1. **Clone the repository:**
 
@@ -199,6 +305,55 @@ cd meet-ai
 ```bash
 npm install
 ```
+
+3. **Configure environment variables:**
+
+Create a `.env` file in the root directory with the following variables:
+
+```bash
+# Database
+DATABASE_URL=your_neon_postgres_url
+
+# Authentication
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+
+# Video & Chat
+STREAM_API_KEY=your_stream_api_key
+STREAM_API_SECRET=your_stream_secret_key
+STREAM_CHAT_KEY=your_stream_chat_key
+STREAM_CHAT_SECRET=your_stream_chat_secret
+
+# AI Integration
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_ORGANIZATION=your_openai_org_id
+
+# Payments
+POLAR_API_KEY=your_polar_api_key
+POLAR_SECRET_KEY=your_polar_secret_key
+
+# Background Jobs
+INNGEST_EVENT_KEY=your_inngest_key
+INNGEST_SIGNING_KEY=your_inngest_signing_key
+```
+
+4. **Initialize the database:**
+
+```bash
+npm run db:push
+```
+
+5. **Start the development server:**
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:3000`.
 
 3. **Set up environment variables:**
 
@@ -384,122 +539,6 @@ export const verification = pgTable('verification', {
 });
 ```
 
-## 🎯 Project Structure
-
-````
-src/
-├── app/
-│   ├── (auth)/                # Authentication route group
-│   │   ├── layout.tsx         # Auth-specific layout
-│   │   ├── sign-in/page.tsx   # Sign-in page
-│   │   └── sign-up/page.tsx   # Sign-up page
-│   ├── (dashboard)/           # Dashboard route group for authenticated users
-│   │   ├── agents/
-│   │   │   ├── [agentId]/page.tsx # Individual agent detail page with dynamic routing
-│   │   │   └── page.tsx       # Agents management page with search params
-│   │   ├── meetings/
-│   │   │   ├── [meetingId]/page.tsx # Individual meeting detail page with dynamic routing
-│   │   │   └── page.tsx       # Meetings management page with search params
-│   │   ├── layout.tsx         # Dashboard layout with sidebar/navbar
-│   │   └── page.tsx           # Dashboard home page
-│   ├── api/
-│   │   ├── auth/[...all]/     # Authentication API routes
-│   │   └── trpc/[trpc]/       # tRPC API endpoint
-│   ├── favicon.ico            # App favicon
-│   ├── globals.css            # Global styles and theme
-│   ├── layout.tsx             # Root layout component with nuqs adapter
-├── constants.ts               # Application constants (pagination, etc.)
-├── modules/
-│   ├── agents/
-│   │   ├── hooks/
-│   │   │   └── use-agents-filters.ts # Client-side filter state management
-│   │   ├── params.ts          # Server-side search params parsing
-│   │   ├── schemas.ts         # Zod validation schemas for agents
-│   │   ├── types.ts           # TypeScript type definitions for agents
-│   │   ├── server/
-│   │   │   └── procedures.ts  # tRPC agents procedures with filtering/pagination/security
-│   │   └── ui/
-│   │       ├── components/
-│   │       │   ├── agent-form.tsx            # Agent creation/edit form
-│   │       │   ├── agent-view-header.tsx     # Agent detail page header with breadcrumbs
-│   │       │   ├── agents-list-header.tsx    # Header with search and filters
-│   │       │   ├── agents-search-filter.tsx  # Search input component
-│   │       │   ├── new-agent-dialog.tsx      # Responsive dialog for agent creation
-│   │       │   ├── columns.tsx               # Data table column definitions
-│   │       │   ├── data-pagination.tsx       # Pagination controls component
-│   │       │   └── update-agent-dialog.tsx   # Dialog for updating agent details
-│   │       └── views/
-│   │           ├── agent-id-vew.tsx          # Individual agent detail view
-│   │           └── agents-view.tsx           # Main agents view with filtering and navigation
-│   ├── meetings/
-│   │   ├── schemas.ts                # Zod validation schemas for meetings
-│   │   ├── types.ts                  # TypeScript type definitions for meetings
-│   │   ├── hooks/
-│   │   │   └── use-meetings-filters.ts # Client-side meetings filter state management
-│   │   ├── params.ts                 # Server-side params parsing for meetings
-│   │   ├── server/
-│   │   │   └── procedures.ts         # tRPC meetings procedures
-│   │   └── ui/
-│   │       ├── components/
-│   │       │   ├── agent-id-filter.tsx       # Agent filter dropdown for meetings
-│   │       │   ├── columns.tsx               # Meeting table column definitions
-│   │       │   ├── meeting-form.tsx          # Meeting create/edit form
-│   │       │   ├── meeting-id-view-header.tsx # Meeting detail page header
-│   │       │   ├── meetings-list-header.tsx  # Meetings list header with filters
-│   │       │   ├── meetings-search-filter.tsx # Search input for meetings
-│   │       │   ├── new-meeting-dialog.tsx    # Dialog for creating meetings
-│   │       │   ├── status-filter.tsx         # Status filter dropdown for meetings
-│   │       │   └── update-meeting-dialog.tsx # Dialog for updating meetings
-│   │       ├── meeting-id-view.tsx           # Meeting detail view
-│   │       └── views/
-│   │           └── meetings-view.tsx         # Main meetings list view
-│   ├── auth/
-│   │   └── ui/
-│   │       └── views/
-│   │           ├── sign-in-view.tsx
-│   │           └── sign-up-view.tsx
-│   ├── dashboard/
-│   │   └── ui/
-│   │       └── components/
-│   │           ├── dashboard-navbar.tsx
-│   │           ├── dashboard-command.tsx
-│   │           ├── dashboard-sidebar.tsx
-│   │           └── dashboard-user-button.tsx
-│   └── home/
-│       └── ui/
-│           └── views/
-│               └── home-view.tsx
-├── components/
-│   ├── ui/                    # shadcn/ui components (enhanced with responsive variants)
-│   ├── responsive-dialog.tsx  # Adaptive Dialog/Drawer component for mobile/desktop
-│   ├── error-state.tsx        # Reusable error state component
-│   ├── loading-state.tsx      # Reusable loading state component
-│   ├── empty-state.tsx        # Reusable empty state component with illustrations
-│   ├── generated-avatar.tsx   # DiceBear avatar component
-│   ├── command-select.tsx     # Generic command select component for forms
-│   └── data-table.tsx         # Reusable data table component with TanStack React Table
-├── db/
-│   ├── index.ts               # Database connection
-│   └── schema.ts              # Database schema with auth and agents tables
-├── hooks/
-│   ├── use-mobile.ts          # Mobile detection hook
-│   └── use-confirm.tsx        # Shared confirmation dialog hook
-├── lib/
-│   ├── auth.ts                # Better-auth server configuration
-│   ├── auth-client.ts         # Better-auth client configuration
-│   └── utils.ts               # Utility functions
-├── trpc/                      # tRPC setup and configuration
-│   ├── client.tsx             # Client-side tRPC and React Query setup
-│   ├── server.tsx             # Server-side tRPC setup
-│   ├── init.ts                # tRPC initialization, context, and protected procedures
-│   ├── query-client.ts        # TanStack Query client configuration
-│   └── routers/
-│       └── _app.ts            # Main tRPC router with agents
-└── public/
-    ├── empty.svg              # Empty state illustration
-    └── logo.svg               # Meet.AI brand logo
-```
-
 ## 🌙 Theme System
 
 The application features a sophisticated theme system:
@@ -513,7 +552,8 @@ The application features a sophisticated theme system:
 
 - **Mobile-first approach** with Tailwind breakpoints
 - **Flexible layouts** that adapt to different screen sizes
-- **Adaptive Components** that automatically switch between mobile and desktop variants
+- **Adaptive Components** that automatically switch between mobile and desktop
+  variants
 - **Responsive Dialog System** that uses Drawer on mobile and Dialog on desktop
 - **Context-Aware UI** with automatic mobile detection and component adaptation
 - **Touch-friendly interactions** for mobile devices
@@ -588,4 +628,3 @@ This project is private and proprietary.
 
 This is a personal project. If you have suggestions or find issues, please
 create an issue in the repository.
-````

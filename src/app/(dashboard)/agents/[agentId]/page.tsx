@@ -34,13 +34,15 @@ const AgentDetailPage = async ({ params }: Props) => {
   );
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <Suspense fallback={<AgentsIdViewLoading />}>
-        <ErrorBoundary fallback={<AgentsIdViewError />}>
-          <AgentIdView agentId={agentId} />
-        </ErrorBoundary>
-      </Suspense>
-    </HydrationBoundary>
+    <div className="pt-[52px] pb-[42px]">
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Suspense fallback={<AgentsIdViewLoading />}>
+          <ErrorBoundary fallback={<AgentsIdViewError />}>
+            <AgentIdView agentId={agentId} />
+          </ErrorBoundary>
+        </Suspense>
+      </HydrationBoundary>
+    </div>
   );
 };
 

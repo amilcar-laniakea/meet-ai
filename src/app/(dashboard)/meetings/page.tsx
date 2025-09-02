@@ -12,7 +12,7 @@ import {
   MeetingsView,
   MeetingsViewError,
   MeetingsViewLoading
-} from '@/modules/meetings/ui/meetings-view';
+} from '@/modules/meetings/ui/views/meetings-view';
 
 import { loadSearchParams } from '@/modules/meetings/params';
 

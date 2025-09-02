@@ -25,6 +25,7 @@ import {
 import { MeetingGetOne } from '../../types';
 import { meetingsInsertSchema } from '../../schemas';
 import { NewAgentDialog } from '@/modules/agents/ui/components/new-agent-dialog';
+import { useRouter } from 'next/navigation';
 
 interface MeetingFormProps {
   onSuccess?: (id?: string) => void;
@@ -37,6 +38,7 @@ export const MeetingForm = ({
   onCancel,
   initialValues
 }: MeetingFormProps) => {
+  const router = useRouter();
   const trpc = useTRPC();
   const queryClient = useQueryClient();
 
@@ -64,8 +66,10 @@ export const MeetingForm = ({
         await queryClient.invalidateQueries(
           trpc.meetings.getMany.queryOptions({})
         );
+        await queryClient.invalidateQueries(
+          trpc.premium.getFreeUsage.queryOptions()
+        );
 
-        // TODO: invalidate free tier usage
         onSuccess?.(e.id);
       },
       onError: error => {
@@ -74,6 +78,10 @@ export const MeetingForm = ({
           richColors: true,
           closeButton: true
         });
+
+        if (error.data?.code === 'FORBIDDEN') {
+          router.push('/upgrade');
+        }
       }
     })
   );
@@ -103,7 +111,6 @@ export const MeetingForm = ({
           richColors: true,
           closeButton: true
         });
-        //TODO: Check if error code is FORBIDDEN, redirect to /upgrade
       }
     })
   );

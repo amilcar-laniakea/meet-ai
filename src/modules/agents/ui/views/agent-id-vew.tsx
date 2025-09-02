@@ -44,10 +44,15 @@ export const AgentIdView = ({ agentId }: Props) => {
           richColors: true,
           closeButton: true
         });
+
         await queryClient.invalidateQueries(
           trpc.agents.getMany.queryOptions({})
         );
-        // TODO: Invalidate free tier usage
+
+        await queryClient.invalidateQueries(
+          trpc.premium.getFreeUsage.queryOptions()
+        );
+
         router.push('/agents');
       },
       onError: error => {

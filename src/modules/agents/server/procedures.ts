@@ -3,7 +3,11 @@ import { TRPCError } from '@trpc/server';
 import { and, eq, getTableColumns, sql, ilike, desc, count } from 'drizzle-orm';
 import { db } from '@/db';
 import { agents } from '@/db/schema';
-import { createTRPCRouter, protectedProcedure } from '@/trpc/init';
+import {
+  createTRPCRouter,
+  premiumProcedure,
+  protectedProcedure
+} from '@/trpc/init';
 import {
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
@@ -120,7 +124,7 @@ export const agentsRouter = createTRPCRouter({
         totalPages
       };
     }),
-  create: protectedProcedure
+  create: premiumProcedure('agents')
     .input(agentsInsertSchema)
     .mutation(async ({ input, ctx }) => {
       // const { name, instructions } = input;

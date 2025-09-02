@@ -6,6 +6,57 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.15.0] - 2025-09-01
+
+### ✨ Added
+
+- **Premium Features:** New subscription-based premium features with Polar integration
+- **Pricing Page:** Complete pricing interface with feature comparison and subscription options
+- **Premium Procedures:** Backend support for premium feature access and subscription management
+- **Trial System:** Free trial functionality with proper duration tracking
+- **Upgrade Flow:** Seamless upgrade process from trial to premium subscription
+- **Payment Integration:** Secure payment processing with Polar payment system
+- **Premium Guards:** Access control for premium features across agents and meetings
+
+### 🎨 UI/UX
+
+- **Pricing Cards:** Professional pricing cards with feature lists and CTAs
+- **Trial Badge:** Clear trial status indicator in dashboard sidebar
+- **Upgrade Button:** Prominent upgrade CTA in user menu and trial notice
+- **Premium Indicators:** Visual indicators for premium features in agent and meeting forms
+- **Responsive Pricing:** Mobile-optimized pricing page layout
+- **Payment Flow:** Smooth and secure payment process interface
+
+### 🛠️ Technical
+
+- **Polar SDK:** Complete integration with Polar for subscription management
+- **Authentication Enhancement:** Extended auth system with subscription status
+- **Premium Routes:** New upgrade page and premium feature routes
+- **Type Safety:** Comprehensive TypeScript types for premium features
+- **Router Updates:** Enhanced tRPC routers with premium procedures
+- **Constants:** Centralized premium feature constants and configurations
+
+### ✨ Added
+
+- **Enhanced Chat Features:** Extended chat capabilities with improved message threading and real-time updates
+- **Advanced Transcript Search:** Enhanced search functionality with better highlighting and navigation
+- **User Experience Improvements:** Refined UI/UX for chat and transcript interactions
+- **Performance Optimizations:** Improved loading times and real-time updates in chat
+
+### 🎨 UI/UX
+
+- **Refined Message Display:** Enhanced message layout and typography for better readability
+- **Improved Search UX:** Better visual feedback for search results in transcripts
+- **Smoother Transitions:** Enhanced loading states and animations
+- **Accessibility Updates:** Improved keyboard navigation and screen reader support
+
+### 🛠️ Technical
+
+- **Stream Chat Optimizations:** Enhanced real-time message handling and threading
+- **Search Performance:** Improved search algorithm efficiency
+- **Component Updates:** Refined component architecture for better maintainability
+- **Type Safety:** Enhanced TypeScript types across chat and transcript features
+
 ## [1.14.0] - 2025-09-01
 
 ### ✨ Added

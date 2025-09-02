@@ -14,13 +14,13 @@ import {
 
 import { useTRPC } from '@/trpc/client';
 import ErrorState from '@/components/error-state';
-import { MeetingIdViewHeader } from './components/meeting-id-view-header';
-import { UpdateMeetingDialog } from './components/update-meeting-dialog';
-import { UpcomingState } from './components/upcoming-state';
-import { ActiveState } from './components/active-state';
-import { CancelledState } from './components/cancelled-state';
-import { ProcessingState } from './components/processing-state';
-import { CompletedState } from './components/completed-state';
+import { MeetingIdViewHeader } from '../components/meeting-id-view-header';
+import { UpdateMeetingDialog } from '../components/update-meeting-dialog';
+import { UpcomingState } from '../components/upcoming-state';
+import { ActiveState } from '../components/active-state';
+import { CancelledState } from '../components/cancelled-state';
+import { ProcessingState } from '../components/processing-state';
+import { CompletedState } from '../components/completed-state';
 
 interface Props {
   meetingId: string;
@@ -45,10 +45,15 @@ export const MeetingIdView = ({ meetingId }: Props) => {
           richColors: true,
           closeButton: true
         });
+
         await queryClient.invalidateQueries(
           trpc.meetings.getMany.queryOptions({})
         );
-        // TODO: Invalidate free tier usage
+
+        await queryClient.invalidateQueries(
+          trpc.premium.getFreeUsage.queryOptions()
+        );
+
         router.push('/meetings');
       },
       onError: error => {

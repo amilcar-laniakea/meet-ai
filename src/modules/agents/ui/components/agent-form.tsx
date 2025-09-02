@@ -22,6 +22,7 @@ import {
 import { AgentGetOne } from '../../types';
 import { agentsInsertSchema } from '../../schemas';
 import { Loader2Icon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface AgentFormProps {
   onSuccess?: () => void;
@@ -34,6 +35,7 @@ export const AgentForm = ({
   onCancel,
   initialValues
 }: AgentFormProps) => {
+  const router = useRouter();
   const trpc = useTRPC();
   const queryClient = useQueryClient();
 
@@ -50,7 +52,10 @@ export const AgentForm = ({
           trpc.agents.getMany.queryOptions({})
         );
 
-        // TODO: invalidate free tier usage
+        await queryClient.invalidateQueries(
+          trpc.premium.getFreeUsage.queryOptions()
+        );
+
         onSuccess?.();
       },
       onError: error => {
@@ -59,6 +64,10 @@ export const AgentForm = ({
           richColors: true,
           closeButton: true
         });
+
+        if (error.data?.code === 'FORBIDDEN') {
+          router.push('/upgrade');
+        }
       }
     })
   );
@@ -88,7 +97,6 @@ export const AgentForm = ({
           richColors: true,
           closeButton: true
         });
-        //TODO: Check if error code is FORBIDDEN, redirect to /upgrade
       }
     })
   );

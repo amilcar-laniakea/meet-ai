@@ -8,10 +8,12 @@ import { useTRPC } from '@/trpc/client';
 import { DataTable } from '@/components/data-table';
 import ErrorState from '@/components/error-state';
 import LoadingState from '@/components/loading-state';
-import { columns } from './components/columns';
+
 import EmptyState from '@/components/empty-state';
-import { useMeetingsFilters } from '../hooks/use-meetings-filters';
+
 import { DataPagination } from '@/components/data-pagination';
+import { columns } from '../components/columns';
+import { useMeetingsFilters } from '../../hooks/use-meetings-filters';
 
 export const MeetingsView = () => {
   const trpc = useTRPC();

@@ -37,7 +37,7 @@ const Meetings = async ({ searchParams }: Props) => {
   );
 
   return (
-    <>
+    <div className="pt-[52px] pb-[42px]">
       <MeetingsListHeader />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Suspense fallback={<MeetingsViewLoading />}>
@@ -46,7 +46,7 @@ const Meetings = async ({ searchParams }: Props) => {
           </ErrorBoundary>
         </Suspense>
       </HydrationBoundary>
-    </>
+    </div>
   );
 };
 export default Meetings;

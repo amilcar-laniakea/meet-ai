@@ -63,26 +63,77 @@ export const premiumProcedure = (entity: 'meetings' | 'agents') =>
       .where(eq(agents.userId, ctx.auth.user.id));
 
     const isPremium = customer.activeSubscriptions.length > 0;
+
+    let product = null;
+
+    if (isPremium) {
+      product = await polarClient.products.get({
+        id: customer.activeSubscriptions[0].productId
+      });
+
+      if (!product) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Product not found'
+        });
+      }
+
+      if (!product.metadata?.meetings || !product.metadata?.agents) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Product metadata is incomplete'
+        });
+      }
+    }
+
+    const meetingsQuantity = Number(product?.metadata.meetings);
+    const agentsQuantity = Number(product?.metadata.agents);
+
     const isFreeAgentLimitReached = userAgents.count >= MAX_FREE_AGENTS;
     const isFreeMeetingLimitReached = userMeetings.count >= MAX_FREE_MEETINGS;
 
-    const shouldThrowMeetingError =
+    const shouldThrowFreeMeetingError =
       entity === 'meetings' && isFreeMeetingLimitReached && !isPremium;
 
-    const shouldThrowAgentError =
+    const shouldThrowFreeAgentError =
       entity === 'agents' && isFreeAgentLimitReached && !isPremium;
 
-    if (shouldThrowMeetingError) {
+    const isPaidAgentLimitReached =
+      agentsQuantity === 0 ? false : userAgents.count >= agentsQuantity;
+    const isPaidMeetingLimitReached =
+      meetingsQuantity === 0 ? false : userMeetings.count >= meetingsQuantity;
+
+    const shouldThrowPaidMeetingError =
+      entity === 'meetings' && isPaidMeetingLimitReached;
+
+    const shouldThrowPaidAgentError =
+      entity === 'agents' && isPaidAgentLimitReached;
+
+    if (shouldThrowPaidMeetingError) {
       throw new TRPCError({
         code: 'FORBIDDEN',
-        message: 'You have reached the maximum number of free meetings'
+        message: `You have reached the maximum number of meetings (${meetingsQuantity}).`
       });
     }
 
-    if (shouldThrowAgentError) {
+    if (shouldThrowPaidAgentError) {
       throw new TRPCError({
         code: 'FORBIDDEN',
-        message: 'You have reached the maximum number of free agents'
+        message: `You have reached the maximum number of agents (${agentsQuantity}).`
+      });
+    }
+
+    if (shouldThrowFreeMeetingError) {
+      throw new TRPCError({
+        code: 'FORBIDDEN',
+        message: 'You have reached the maximum number of free meetings.'
+      });
+    }
+
+    if (shouldThrowFreeAgentError) {
+      throw new TRPCError({
+        code: 'FORBIDDEN',
+        message: 'You have reached the maximum number of free agents.'
       });
     }
 
